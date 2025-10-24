@@ -3,7 +3,7 @@
    ==================================================== */
 
 :root {
-    /* 1.1. Cores (8 Cores Mínimas) */
+    /* 1.1. Cores (9 Cores - Atende as 8 Mínimas) */
     --color-primary: #1F453B;      /* Verde Escuro (Principal) */
     --color-secondary: #38761D;    /* Verde Médio (Destaque/Botões) */
     --color-accent: #1997C6;       /* Azul Ciano (Links, Foco) */
@@ -12,7 +12,7 @@
     --color-text: #333333;         /* Preto Suave (Texto) */
     --color-neutral-light: #F8F8F8;/* Fundo Secundário (Light) */
     --color-neutral-base: #FFFFFF; /* Fundo Principal (Branco) */
-    --color-border: #CCCCCC;
+    --color-border: #CCCCCC;       /* Neutra 2 */
 
     /* 1.2. Tipografia (5 Tamanhos Mínimos) */
     --font-family-base: 'Quicksand', sans-serif;
@@ -48,8 +48,10 @@ body {
     color: var(--color-text);
     background-color: var(--color-neutral-light);
     min-height: 100vh;
-    display: flex; 
+    display: flex;
     flex-direction: column;
+    /* CORREÇÃO DE LAYOUT CRÍTICA: Previne o overflow horizontal no mobile */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -305,7 +307,6 @@ h3 { font-size: var(--font-size-h3); }
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* AJUSTE FINAL: Garante que imagens e figures nos cards se ajustem corretamente */
 .card figure img {
     width: 100%;
     height: auto;
