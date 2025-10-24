@@ -38,8 +38,6 @@
         <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
         <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
         
-        <div class="side-menu-overlay" aria-hidden="true"></div> 
-
         <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
             <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button>
             <ul class="side-menu__list">
@@ -96,12 +94,12 @@
             <h2 id="ajuda-title">Ajude-nos a Preservar</h2>
             <p>Seja um Doador ou Voluntário. Sua contribuição mensal ajuda a manter nossos projetos ativos. Doe e garanta o plantio de 5 novas árvores nativas.</p>
             
-            <div class="donation-container">
-                <div class="donation-text">
+            <div class="donation-container" style="display: flex; gap: var(--space-xl); flex-wrap: wrap;">
+                <div class="donation-text" style="flex: 1 1 500px;">
                     <p>Seja mensal, trimestral ou um único valor, sua ajuda faz a diferença. Utilizamos 100% dos recursos em mudas, manutenção de áreas e materiais educativos.</p>
-                    <a href="doacoes.html" class="btn" aria-label="Acessar página de doação">Quero Doar Agora &rarr;</a>
+                    <a href="doacoes.html" class="btn" aria-label="Acessar página de doação" style="margin-top: var(--space-md);">Quero Doar Agora &rarr;</a>
                 </div>
-                <figure class="donation-image">
+                <figure class="donation-image" style="flex: 1 1 200px;">
                     <picture>
                         <source srcset="../assets/images/detalhe_plantio.webp" type="image/webp">
                         <img 
