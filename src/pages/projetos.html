@@ -14,7 +14,7 @@
         <h1 class="header__title" style="position: absolute; width: 1px; height: 1px; overflow: hidden;">ONG Natureza</h1>
         <div class="header__logo">
             <img 
-                src="/Ong-natureza-2/src/assets/images/logo.png" 
+                src="../assets/images/logo.png" 
                 alt="Logo da ONG Natureza - Reflorestamento e Vida" 
                 class="site-logo"
             >
@@ -47,7 +47,72 @@
     </header>
 
     <main class="container">
-        </main>
+        <section class="section" aria-labelledby="projetos-title">
+            <h2 id="projetos-title">O Que Fazemos? - Nossos Programas de Ação</h2>
+            <p>Acreditamos que a ação local gera impacto global. Nossos projetos são estruturados em pilares essenciais que buscam a restauração e a educação ambiental contínua.</p>
+
+            <div class="grid-projetos">
+                <article class="card" id="reflorestamento">
+                    <h3>Pilar I: Reflorestamento Estratégico</h3>
+                    <p>Foco na recuperação de áreas de preservação permanente (APPs) e nascentes, utilizando apenas sementes nativas e promovendo a biodiversidade.</p>
+                    
+                    <figure>
+                        <picture>
+                            <source srcset="../assets/images/projeto_reflorestamento.webp" type="image/webp">
+                            <img 
+                                src="../assets/images/projeto_reflorestamento.jpg" 
+                                alt="Voluntários em diferentes etapas do plantio de mudas." 
+                                loading="lazy" 
+                                class="card-image-half"
+                            >
+                        </picture>
+                        <figcaption>Ação: Cada muda é um passo para o futuro.</figcaption>
+                    </figure>
+                </article>
+
+                <article class="card" id="educacao">
+                    <h3>Pilar II: Consciência Ecológica</h3>
+                    <p>Workshops, palestras e materiais digitais para escolas e comunidades, transformando cidadãos em agentes de mudança ambiental.</p>
+                    <figure>
+                         <picture>
+                            <source srcset="../assets/images/projeto_educacao.webp" type="image/webp">
+                            <img 
+                                src="../assets/images/projeto_educacao.jpg" 
+                                alt="Grupo de crianças e adultos participando de uma aula de educação ambiental ao ar livre." 
+                                loading="lazy" 
+                                class="card-image-half"
+                            >
+                        </picture>
+                        <figcaption>"A educação ambiental é a chave para construir um futuro sustentável."</figcaption>
+                    </figure>
+                </article>
+            </div>
+        </section>
+
+        <section class="section destaque-ajuda" aria-labelledby="ajuda-title">
+            <h2 id="ajuda-title">Ajude-nos a Preservar</h2>
+            <p>Seja um Doador ou Voluntário. Sua contribuição mensal ajuda a manter nossos projetos ativos. Doe e garanta o plantio de 5 novas árvores nativas.</p>
+            
+            <div class="donation-container">
+                <div class="donation-text">
+                    <p>Seja mensal, trimestral ou um único valor, sua ajuda faz a diferença. Utilizamos 100% dos recursos em mudas, manutenção de áreas e materiais educativos.</p>
+                    <a href="doacoes.html" class="btn" aria-label="Acessar página de doação">Quero Doar Agora &rarr;</a>
+                </div>
+                <figure class="donation-image">
+                    <picture>
+                        <source srcset="../assets/images/detalhe_plantio.webp" type="image/webp">
+                        <img 
+                            src="../assets/images/detalhe_plantio.jpg" 
+                            alt="Mudas de plantas em crescimento sendo cuidadas por mãos em luvas." 
+                            loading="lazy" 
+                            class="card-image-half"
+                        >
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="footer">
         <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
