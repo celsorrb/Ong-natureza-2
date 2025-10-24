@@ -5,30 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ONG Natureza</title>
   <link rel="stylesheet" href="src/css/main.css" />
+  <script defer src="src/js/menu.js"></script>
 </head>
 <body>
   <header class="container">
-    <nav class="flex">
+    <nav class="navbar">
       <h1>ONG Natureza</h1>
-      <ul class="flex">
+      <button class="hamburger" aria-label="Abrir menu">&#9776;</button>
+      <ul class="nav-links">
         <li><a href="#">Início</a></li>
-        <li><a href="#">Projetos</a></li>
+        <li class="dropdown">
+          <a href="#">Projetos</a>
+          <ul class="submenu">
+            <li><a href="#">Ambientais</a></li>
+            <li><a href="#">Sociais</a></li>
+          </ul>
+        </li>
         <li><a href="#">Contato</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <section class="flex">
-      <div class="card">
+    <section class="grid-12">
+      <div class="card col-4">
         <h2>Projeto 1</h2>
         <p>Descrição do projeto.</p>
         <span class="badge">Meio Ambiente</span>
       </div>
-      <div class="card">
+      <div class="card col-4">
         <h2>Projeto 2</h2>
         <p>Descrição do projeto.</p>
         <span class="badge">Educação</span>
+      </div>
+      <div class="card col-4">
+        <h2>Projeto 3</h2>
+        <p>Descrição do projeto.</p>
+        <span class="badge">Saúde</span>
       </div>
     </section>
 
