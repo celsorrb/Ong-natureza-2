@@ -20,9 +20,6 @@
             >
         </div>
         
-        <input type="checkbox" id="nav-toggle" class="nav__toggle">
-        <label for="nav-toggle" class="nav__hamburguer" aria-label="Abrir menu de navegação">☰</label>
-
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html" aria-current="page">Início</a></li>
@@ -35,73 +32,22 @@
                     </ul>
                 </li>
                 <li class="nav__item"><a href="cadastro.html">Seja Voluntário</a></li>
-                <li class="nav__item"><a href="projetos.html">Seja um Doador</a></li> 
             </ul>
         </nav>
+
+        <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
+        <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
+        
+        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
+            <ul class="side-menu__list">
+                <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
+                <li><a href="contato.html">FALE CONOSCO</a></li>
+            </ul>
+        </aside>
     </header>
 
     <main class="container">
-        <section class="section hero-section" aria-labelledby="hero-title">
-            <h2 id="hero-title">Preservar o Presente, Garantir o Futuro</h2>
-            <figure>
-                <picture>
-                    <source srcset="/Ong-natureza-2/src/assets/images/banner_hero_principal.webp" type="image/webp">
-                    <img 
-                        src="/Ong-natureza-2/src/assets/images/banner_hero_principal.jpg" 
-                        alt="Vista de uma floresta nativa com raios de sol e um caminho, simbolizando a missão da ONG." 
-                        loading="eager" 
-                        class="hero-image"
-                    >
-                </picture>
-                <figcaption>Juntos, restaurando o nosso lar.</figcaption>
-            </figure>
-        </section>
-
-        <section class="section" aria-labelledby="quem-somos-title">
-            <h2 id="quem-somos-title">Quem Somos? - Missão e Visão</h2>
-            
-            <div class="content-with-image">
-                <div class="text-content">
-                    <p style="font-style: italic; margin-bottom: var(--space-lg);">"Acreditamos no poder da regeneração. Cada ação hoje é um legado de vida para o amanhã."</p>
-                    
-                    <div class="grid-projetos">
-                        <article class="card">
-                            <h3>Missão</h3>
-                            <p>Contribuir para que as empresas e a sociedade sejam sustentáveis, preservando o mundo para futuras gerações através de ações locais e conscientização global.</p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Visão</h3>
-                            <p>Ser o farol da sustentabilidade, promovendo a harmonia entre o desenvolvimento humano e a integridade da natureza, sendo referência em recuperação de biomas nativos.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <figure class="image-content">
-                    <picture>
-                        <source srcset="/Ong-natureza-2/src/assets/images/missao_colaboracao.webp" type="image/webp">
-                        <img 
-                            src="/Ong-natureza-2/src/assets/images/missao_colaboracao.jpg" 
-                            alt="Voluntários sorrindo e trabalhando juntos em uma causa ambiental." 
-                            loading="lazy" 
-                            class="round-image"
-                        >
-                    </picture>
-                    <figcaption>Equipe de Guardiões da Natureza.</figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="fale-conosco-title">
-            <h2 id="fale-conosco-title">Fale Conosco</h2>
-            <div class="fale-conosco-box">
-                <p><strong>Escritório Central:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
-                <p><strong>Telefone:</strong> (XX) 99999-9999</p>
-                <p><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
-                <a href="projetos.html" class="btn">Ver Nossos Projetos &rarr;</a>
-            </div>
-        </section>
-    </main>
+        </main>
 
     <footer class="footer">
         <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
