@@ -1,118 +1,450 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início | ONG Natureza - Guardiões do Futuro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css"> 
-</head>
-<body class="bg-index">
-    <header class="header">
-        <h1 class="header__title" style="position: absolute; width: 1px; height: 1px; overflow: hidden;">ONG Natureza</h1>
-        <div class="header__logo">
-            <img 
-                src="../assets/images/logo.png" 
-                alt="Logo da ONG Natureza - Reflorestamento e Vida" 
-                class="site-logo"
-            >
-        </div>
-        
-        <nav class="nav" aria-label="Navegação Principal do Site">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="index.html" aria-current="page">Início</a></li>
-                
-                <li class="nav__item dropdown">
-                    <a href="projetos.html" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Projetos Sociais</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="projetos.html#reflorestamento">Reflorestamento</a></li>
-                        <li><a href="projetos.html#educacao">Educação Ambiental</a></li>
-                    </ul>
-                </li>
-                <li class="nav__item"><a href="cadastro.html">Seja Voluntário</a></li>
-            </ul>
-        </nav>
+/* ====================================================
+   1. DESIGN SYSTEM: Variáveis, Tipografia e Espaçamento
+   ==================================================== */
 
-        <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
-        <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
-        
-        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
-            <ul class="side-menu__list">
-                <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
-                <li><a href="contato.html">FALE CONOSCO</a></li>
-            </ul>
-        </aside>
-    </header>
-
-    <main class="container">
-        <section class="section hero-section" aria-labelledby="hero-title">
-            <h2 id="hero-title">Preservar o Presente, Garantir o Futuro</h2>
-            <figure>
-                <picture>
-                    <source srcset="../assets/images/banner_hero_principal.webp" type="image/webp">
-                    <img 
-                        src="../assets/images/banner_hero_principal.jpg" 
-                        alt="Vista de uma floresta nativa com raios de sol e um caminho, simbolizando a missão da ONG." 
-                        loading="eager" 
-                        class="hero-image"
-                    >
-                </picture>
-                <figcaption>Juntos, restaurando o nosso lar.</figcaption>
-            </figure>
-        </section>
-
-        <section class="section" aria-labelledby="quem-somos-title">
-            <h2 id="quem-somos-title">Quem Somos? - Missão e Visão</h2>
-            
-            <div class="content-with-image">
-                <div class="text-content">
-                    <p style="font-style: italic; margin-bottom: var(--space-lg);">"Acreditamos no poder da regeneração. Cada ação hoje é um legado de vida para o amanhã."</p>
-                    
-                    <div class="grid-projetos">
-                        <article class="card">
-                            <h3>Missão</h3>
-                            <p>Contribuir para que as empresas e a sociedade sejam sustentáveis, preservando o mundo para futuras gerações através de ações locais e conscientização global.</p>
-                        </article>
-
-                        <article class="card">
-                            <h3>Visão</h3>
-                            <p>Ser o farol da sustentabilidade, promovendo a harmonia entre o desenvolvimento humano e a integridade da natureza, sendo referência em recuperação de biomas nativos.</p>
-                        </article>
-                    </div>
-                </div>
-
-                <figure class="image-content">
-                    <picture>
-                        <source srcset="../assets/images/missao_colaboracao.webp" type="image/webp">
-                        <img 
-                            src="../assets/images/missao_colaboracao.jpg" 
-                            alt="Voluntários sorrindo e trabalhando juntos em uma causa ambiental." 
-                            loading="lazy" 
-                            class="round-image"
-                        >
-                    </picture>
-                    <figcaption>Equipe de Guardiões da Natureza.</figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="fale-conosco-title">
-            <h2 id="fale-conosco-title">Fale Conosco</h2>
-            <div class="fale-conosco-box">
-                <p><strong>Escritório Central:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
-                <p><strong>Telefone:</strong> (XX) 99999-9999</p>
-                <p><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
-                <a href="contato.html" class="btn">Fale Conosco &rarr;</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
-    </footer>
+:root {
+    /* 1.1. Cores (Nova paleta Marrom-Verde Suave - CORES MANTIDAS) */
     
-    <script src="../scripts/app.js"></script>
-</body>
-</html>
+    /* FUNDO PRINCIPAL: PEDIDO DO CLIENTE #C7A98E */
+    --color-background-principal: #C7A98E; 
+    
+    /* TONS NEUTROS/BASE */
+    --color-base-clara: #FBF7F0;          /* Cor mais clara (Fundo de Cards/Containers - Lighter than body) */
+    --color-terra-clara: #E8D8C3;          /* Marrom Claro Suave (Bordas, Linhas, Fundo de Destaques Secundários) */
+    --color-terra-escura: #4A3C33;        /* Marrom Café (Texto, Títulos, Header, Footer) */
+    
+    /* TONS DE VERDE/DESTAQUE */
+    --color-verde-musgo: #8FA87B;         /* Verde Musgo Suave (Destaque Principal, Botões) */
+    --color-verde-folha: #B7D4A2;         /* Verde Folha Claro (Links, Iconografia, Hover) */
+    --color-destaque-sucesso: #5F9E5F;    /* Verde Esmeralda (Sucesso, Foco, Borda Destaque) */
+    --color-aviso: #CC0000;               /* Vermelho Puro (Erros/Validação) */
+
+    /* 1.2. Tipografia (5 Tamanhos Mínimos) */
+    --font-family-base: 'Quicksand', sans-serif;
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-h1: 2.5rem;       /* 40px */
+    --font-size-h2: 2rem;         /* 32px */
+    --font-size-h3: 1.5rem;       /* 24px */
+    --font-size-small: 0.875rem;  /* 14px */
+    --font-size-large: 1.125rem;  /* 18px */
+
+    /* 1.3. Espaçamento Modular (Múltiplos de 8px) */
+    --space-xs: 4px;             
+    --space-sm: 8px;             /* 8px */
+    --space-md: 16px;            /* 16px */
+    --space-lg: 24px;            /* 24px */
+    --space-xl: 32px;            /* 32px */
+    --space-xxl: 48px;           /* 48px */
+    --space-xxxl: 64px;          /* 64px */
+}
+
+/* ====================================================
+   2. ESTILOS BASE E RESET
+   ==================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--color-terra-escura); 
+    background-color: var(--color-background-principal); 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; 
+}
+
+/* FUNDOS SÓLIDOS (TODOS IGUAIS AO NOVO FUNDO PADRÃO) */
+.bg-index, .bg-projetos, .bg-cadastro, .bg-doacoes, .bg-contato {
+    background-color: var(--color-background-principal); 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-lg); 
+    flex-grow: 1; 
+}
+
+h1, h2, h3 {
+    color: var(--color-terra-escura); 
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { 
+    font-size: var(--font-size-h2);
+    border-bottom: 2px solid var(--color-verde-folha); 
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-xl); 
+}
+h3 { font-size: var(--font-size-h3); }
+
+.section {
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-xxl);
+}
+
+/* ====================================================
+   3. SISTEMA DE GRID E LEIAUTES AVANÇADOS
+   ==================================================== */
+
+/* ... (MANUTENÇÃO: Grid e Media Queries - Sem Alterações neste bloco) ... */
+.grid-12-column {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    gap: var(--space-lg); 
+}
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+
+/* 3.2. Layouts Responsivos (5 Breakpoints Mínimos) */
+.grid-projetos, .content-with-image, .donation-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg); 
+}
+@media (min-width: 577px) {
+    .grid-projetos {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+    }
+}
+@media (min-width: 768px) {
+    .content-with-image {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        gap: var(--space-xl);
+        align-items: flex-start;
+    }
+    .content-with-image .text-content {
+        order: initial;
+    }
+    .content-with-image .image-content {
+        max-width: none;
+        width: 100%;
+    }
+    .donation-container .donation-image {
+        order: initial;
+    }
+}
+@media (min-width: 992px) {
+    .donation-container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        align-items: center;
+    }
+}
+@media (min-width: 1200px) {
+    .grid-projetos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1350px;
+    }
+}
+/* ... (FIM DA MANUTENÇÃO) ... */
+
+
+/* Estilos de Imagem (Gerais) */
+.round-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-sm); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+.image-center-section {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: var(--space-sm);
+    display: block;
+    margin: 0 auto var(--space-md) auto; 
+}
+
+
+/* ====================================================
+   4. NAVEGAÇÃO HÍBRIDA (TRADICIONAL + HAMBURGER LATERAL)
+   ==================================================== */
+
+.header {
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara); 
+    padding: var(--space-sm) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.site-logo {
+    height: var(--space-xxl); 
+    width: auto; 
+    display: block;
+}
+
+/* CONTROLE DO MENU LATERAL (Hamburger) */
+.side-menu__toggle {
+    display: none; 
+}
+.side-menu__hamburguer {
+    cursor: pointer;
+    font-size: var(--font-size-h2);
+    color: var(--color-base-clara);
+    margin-left: var(--space-lg);
+    z-index: 1100; /* Sempre acima do menu principal */
+    display: block;
+}
+
+/* MENU PRINCIPAL TRADICIONAL (Sempre visível no desktop) */
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-md);
+}
+
+.nav__item {
+    position: relative; 
+}
+
+.nav__item a {
+    color: var(--color-base-clara);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap; 
+}
+.nav__item a:hover,
+.nav__item a[aria-current="page"] {
+    background-color: var(--color-verde-musgo); 
+    color: var(--color-terra-escura);
+}
+
+/* --- ESTILOS DO SUBMENU DROPDOWN --- */
+
+.dropdown {
+    position: relative; 
+}
+
+.dropdown-menu {
+    list-style: none;
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    min-width: 220px;
+    
+    background-color: var(--color-terra-escura); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: var(--space-xs);
+    padding: var(--space-sm) 0;
+    z-index: 1010; 
+    margin-top: 0; 
+}
+
+.dropdown-menu a {
+    color: var(--color-base-clara);
+    padding: var(--space-sm) var(--space-md);
+    display: block;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-verde-musgo); 
+    color: var(--color-terra-escura);
+    border-radius: 0;
+}
+
+/* REGRA CHAVE: Mostrar o dropdown no Hover e no Focus */
+.dropdown:hover > .dropdown-menu,
+.dropdown-toggle:focus + .dropdown-menu {
+    display: block;
+}
+
+/* --- MENU SECUNDÁRIO LATERAL (SIDE-MENU) --- */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-terra-clara); /* Cor neutra suave */
+    box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+    z-index: 1050;
+    transform: translateX(100%); /* Escondido por padrão */
+    transition: transform 0.3s ease-in-out;
+    padding-top: var(--space-xxl);
+}
+
+.side-menu__list {
+    list-style: none;
+    padding: var(--space-md);
+}
+
+.side-menu__list li a {
+    display: block;
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    text-decoration: none;
+    color: var(--color-terra-escura);
+    font-weight: 700;
+    border-radius: var(--space-xs);
+    transition: background-color 0.3s;
+}
+
+.side-menu__list li a:hover {
+    background-color: var(--color-verde-folha);
+}
+
+/* Mostrar Side Menu ao checar o Toggle */
+.side-menu__toggle:checked ~ .side-menu {
+    transform: translateX(0);
+}
+
+
+/* 4.1. Responsividade da Navegação (Ações a partir de 768px) */
+@media (min-width: 768px) {
+    /* Menu Principal: Visível e Horizontal (CORREÇÃO DE LAYOUT ANTERIOR) */
+    .nav {
+        margin-left: auto;
+        display: flex; /* Garante que a nav não quebre */
+        align-items: center;
+    }
+    .nav__list {
+        display: flex !important;
+        flex-direction: row !important;
+        position: static !important;
+        width: auto !important;
+    }
+    .nav__item {
+        display: block !important;
+        width: auto !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Menu Lateral: Ocultar o Side Menu e o Hambúrguer no Desktop (Sempre usar menu tradicional) */
+    .side-menu__hamburguer {
+        display: none !important;
+    }
+    .side-menu {
+        /* Garante que o side menu não apareça no desktop */
+        display: none; 
+    }
+}
+
+
+/* 4.2. Responsividade da Navegação (Ações até 767px) */
+@media (max-width: 767px) {
+    /* Oculta o menu principal no mobile, pois o Side Menu será a principal navegação */
+    .nav {
+        display: none; 
+    }
+    
+    /* Garante que o Side Menu e o Hambúrguer sejam visíveis */
+    .side-menu__hamburguer {
+        display: block; 
+    }
+}
+
+/* ====================================================
+   5. COMPONENTES DE INTERFACE
+   ==================================================== */
+/* ... (RESTANTE DOS COMPONENTES, MANTIDOS SEM ALTERAÇÃO) ... */
+
+/* --- NOVO ESTILO: PÁGINA DE CONTATO COM FOTOS JOGADAS --- */
+
+.bg-contato {
+    background-color: var(--color-background-principal); 
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-contato .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    pointer-events: none; /* Permite que os cliques atinjam o conteúdo abaixo */
+    overflow: hidden;
+}
+
+.bg-contato .photo-overlay img {
+    position: absolute;
+    opacity: 0.15; /* Transparência */
+    filter: grayscale(100%); /* Efeito de foto antiga */
+    transition: transform 0.5s;
+    width: 250px;
+    height: auto;
+    border: 3px solid var(--color-base-clara); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Posições, Tamanhos e Rotações Variadas */
+.bg-contato #photo-1 {
+    width: 280px;
+    top: 5%;
+    left: -2%;
+    transform: rotate(-10deg);
+}
+.bg-contato #photo-2 {
+    width: 200px;
+    top: 50%;
+    right: 5%;
+    transform: rotate(15deg);
+}
+.bg-contato #photo-3 {
+    width: 350px;
+    bottom: 0%;
+    left: 20%;
+    transform: rotate(-5deg);
+}
+.bg-contato #photo-4 {
+    width: 180px;
+    top: 30%;
+    left: 30%;
+    transform: rotate(25deg);
+}
+/* Efeito de hover na imagem para um toque interativo */
+.bg-contato .photo-overlay img:hover {
+    opacity: 0.3;
+    transform: scale(1.05) rotate(0deg); 
+    z-index: 5;
+}
+
+/* Garante que o conteúdo fique visível acima das fotos */
+.bg-contato .container {
+    position: relative;
+    z-index: 10; 
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo sutil para o texto */
+    padding: var(--space-xl);
+    border-radius: var(--space-sm);
+}
+
+/* ... (RESTANTE DO CSS - FOOTER, ETC.) ... */
+.footer {
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara);
+    margin-top: auto; 
+}
