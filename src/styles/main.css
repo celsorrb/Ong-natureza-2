@@ -95,7 +95,7 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--color-primary); 
+    color: var(--color-primary); /* Cor padrão escura */
     margin-bottom: var(--space-md);
 }
 
@@ -107,6 +107,16 @@ h2 {
     margin-bottom: var(--space-xl); 
 }
 h3 { font-size: var(--font-size-h3); }
+
+/* **********************************************************
+   CORREÇÃO DE CONTRASTE: Mudar a cor do texto para branco 
+   quando estiver no topo da página (área escura do degradê)
+   ********************************************************** */
+.color-on-dark-background {
+    color: var(--color-neutral-base); /* Texto Branco/Claro */
+    border-color: var(--color-accent) !important; /* Destaque azul (para o H2) */
+}
+/* A cor do 'h2' é ajustada no HTML quando esta classe é aplicada */
 
 .section {
     padding: var(--space-md) 0;
