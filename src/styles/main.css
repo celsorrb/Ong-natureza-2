@@ -167,6 +167,15 @@ h3 { font-size: var(--font-size-h3); }
     margin: 0 auto;
 }
 
+/* NOVO ESTILO: Para imagens em seções centrais como o cadastro (substitui o CSS inline) */
+.image-center-section {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: var(--space-sm);
+    display: block;
+    margin: 0 auto var(--space-md) auto; 
+}
+
 
 /* ====================================================
    4. NAVEGAÇÃO SOFISTICADA E HEADER
