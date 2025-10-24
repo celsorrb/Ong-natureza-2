@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco | ONG Natureza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="bg-contato">
+    <header class="header">
+        <h1 class="header__title" style="position: absolute; width: 1px; height: 1px; overflow: hidden;">ONG Natureza</h1>
+        <div class="header__logo">
+            <img 
+                src="../assets/images/logo.png" 
+                alt="Logo da ONG Natureza - Reflorestamento e Vida" 
+                class="site-logo"
+            >
+        </div>
+        
+        <nav class="nav" aria-label="Navegação Principal do Site">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html">Início</a></li>
+                
+                <li class="nav__item dropdown">
+                    <a href="projetos.html" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Projetos Sociais</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projetos.html#reflorestamento">Reflorestamento</a></li>
+                        <li><a href="projetos.html#educacao">Educação Ambiental</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="cadastro.html">Seja Voluntário</a></li>
+            </ul>
+        </nav>
+
+        <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
+        <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
+        
+        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
+            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button>
+            <ul class="side-menu__list">
+                <li><a href="index.html">Página Inicial</a></li> 
+                <li><a href="projetos.html">Projetos Sociais</a></li>
+                <li><a href="cadastro.html">Seja Voluntário</a></li>
+                <li style="border-top: 1px solid var(--color-terra-escura); margin: var(--space-md) 0;"></li>
+                <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
+                <li><a href="contato.html" aria-current="page">FALE CONOSCO</a></li>
+            </ul>
+        </aside>
+    </header>
+
+    <main class="container">
+        <section class="section" aria-labelledby="contato-title">
+            <h2 id="contato-title">Fale Conosco</h2>
+            <p>Seja para dúvidas, parcerias ou imprensa, envie-nos uma mensagem. Responderemos o mais breve possível!</p>
+
+            <div class="grid-12" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; padding: var(--space-xl); background-color: var(--color-terra-clara); border-radius: var(--space-sm);">
+                
+                <div class="contato-info" style="margin-bottom: var(--space-xl);">
+                    <h3>Canais de Atendimento</h3>
+                    <p style="margin-bottom: var(--space-sm);"><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>Telefone:</strong> (XX) 99999-9999</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>Endereço:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
+                    <p style="font-size: var(--font-size-small); color: var(--color-terra-escura);">Nosso horário de atendimento é de Segunda a Sexta, das 9h às 18h.</p>
+                </div>
+
+                <form id="contact-form" action="" method="POST" novalidate>
+                    <h3>Envie sua Mensagem</h3>
+                    <div class="form-group">
+                        <label for="contact-name">Seu Nome</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Nome Completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Seu E-mail</label>
+                        <input type="email" id="contact-email" name="email" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="margin-top: var(--space-md);">Enviar Mensagem</button>
+                </form>
+
+            </div>
+        </section>
+        
+        <section class="section main-actions" aria-labelledby="voluntario-title">
+            <h2 id="voluntario-title">Quer se tornar um voluntário?</h2>
+            <p>Se você deseja colocar a mão na massa e nos ajudar a preservar o planeta, cadastre-se agora mesmo.</p>
+            <a href="cadastro.html" class="btn" style="margin-top: var(--space-md);">Seja um Guardião &rarr;</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 ONG Natureza. Todos os direitos reservados. | Arquitetura por Google AI Plus.</p>
+    </footer>
+    
+    <script src="../scripts/app.js"></script>
+</body>
+</html>

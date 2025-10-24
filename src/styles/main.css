@@ -1,0 +1,483 @@
+/*
+ * =================================================================
+ * 1. DESIGN SYSTEM - VARIÁVEIS, TIPOGRAFIA E ESPAÇAMENTO
+ * =================================================================
+ */
+
+:root {
+    /* 1.1. Paleta de Cores (Requisitos: Mínimo 8 Cores) */
+    
+    /* CORES BASE NEUTRAS (Fundo e Texto) */
+    --color-base-clara: #FBF7F0;          /* Fundo principal suave */
+    --color-terra-clara: #E8D8C3;         /* Fundo de destaque suave (Tons de Terra) */
+    --color-terra-escura: #4A3C33;        /* Cor do texto e Títulos (Marrom Café) */
+    
+    /* CORES PRIMÁRIAS (Ação e Destaque) */
+    --color-verde-musgo: #8FA87B;         /* Primária: Botões e Destaque Principal */
+    --color-verde-folha: #B7D4A2;         /* Secundária: Links e Hover */
+    --color-destaque-fundo: #C7A98E;      /* Fundo de Seção de Destaque */
+    
+    /* CORES DE FEEDBACK */
+    --color-destaque-sucesso: #5F9E5F;    /* Sucesso e Borda de Foco */
+    --color-aviso: #CC0000;               /* Erro/Alerta */
+
+    /* 1.2. Tipografia Hierárquica (Requisitos: Mínimo 5 Tamanhos) */
+    --font-family-base: 'Quicksand', sans-serif;
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-h1: 2.5rem;       /* 40px */
+    --font-size-h2: 2rem;         /* 32px */
+    --font-size-h3: 1.5rem;       /* 24px */
+    --font-size-small: 0.875rem;  /* 14px */
+    --font-size-large: 1.125rem;  /* 18px */
+
+    /* 1.3. Espaçamento Modular (Requisitos: Múltiplos de 8px) */
+    --space-xs: 4px;             
+    --space-sm: 8px;              /* Módulo Base */
+    --space-md: 16px;             
+    --space-lg: 24px;             
+    --space-xl: 32px;             
+    --space-xxl: 48px;            
+    --space-xxxl: 64px;           
+    
+    /* 1.4. Sistema de Grid */
+    --grid-columns: 12;
+    --grid-gap: var(--space-md);
+}
+
+/*
+ * =================================================================
+ * 2. ESTILOS BASE E UTILITÁRIOS
+ * =================================================================
+ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CORREÇÃO MOBILE: Imagens e mídia se ajustam automaticamente ao contêiner */
+img, video, picture, source {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--color-terra-escura); 
+    background-color: var(--color-base-clara); 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+    grid-column-gap: var(--space-md);
+    padding: 0 var(--space-lg);
+    flex-grow: 1; 
+}
+
+.container > * {
+    grid-column: 2; 
+}
+
+h1, h2, h3 {
+    color: var(--color-terra-escura); 
+    margin-bottom: var(--space-md);
+    font-weight: 700;
+}
+
+h2 { 
+    border-bottom: 2px solid var(--color-verde-folha); 
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-xl); 
+}
+
+.section {
+    padding: var(--space-xl) 0;
+}
+
+/* NOVO ESTILO: Imagem Principal (Hero) */
+.hero-image {
+    width: 100%;
+    max-height: 250px; /* Limite no Mobile */
+    object-fit: cover;
+    border-radius: var(--space-sm);
+}
+@media (min-width: 1024px) {
+    .hero-image {
+        max-height: 450px; /* Maior no Desktop */
+    }
+}
+/* FIM DO NOVO ESTILO */
+
+/*
+ * =================================================================
+ * 3. LAYOUT PRINCIPAL (GRID E FLEXBOX)
+ * =================================================================
+ */
+
+/* 3.1. Grid Customizado para Conteúdo (12 colunas) */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap);
+    align-items: flex-start;
+}
+/* Adaptação para 2 colunas em telas menores */
+.grid-projetos {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--space-xl);
+}
+@media (min-width: 768px) {
+    .grid-projetos {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media (min-width: 1024px) {
+    .grid-projetos {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* 3.2. Layout com Imagem e Texto */
+.content-with-image {
+    display: flex;
+    flex-direction: column; 
+    gap: var(--space-xl);
+}
+.content-with-image .image-content {
+    order: -1; 
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .content-with-image {
+        flex-direction: row; 
+        align-items: flex-start;
+    }
+    .content-with-image .image-content {
+        order: initial;
+        flex-basis: 35%; 
+        flex-shrink: 0;
+    }
+}
+
+/*
+ * =================================================================
+ * 4. NAVEGAÇÃO SOFISTICADA E INTERATIVA
+ * =================================================================
+ */
+
+.header {
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara); 
+    padding: var(--space-sm) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.site-logo {
+    height: var(--space-xxl); 
+}
+
+/* --- MENU PRINCIPAL TRADICIONAL (Desktop) --- */
+.nav {
+    margin-left: auto;
+}
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-xl);
+}
+.nav__item a {
+    text-decoration: none;
+    color: var(--color-base-clara);
+    padding: var(--space-sm);
+    transition: color 0.3s, border-bottom 0.3s;
+}
+.nav__item a:hover {
+    color: var(--color-verde-folha);
+    border-bottom: 2px solid var(--color-verde-folha);
+}
+
+/* --- Dropdown Menu (Desktop) --- */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--color-terra-escura);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: var(--space-sm) 0;
+    z-index: 1001;
+    border-radius: var(--space-sm);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li a {
+    padding: var(--space-md);
+    display: block;
+    color: var(--color-base-clara);
+}
+.dropdown-menu li a:hover {
+    background-color: var(--color-verde-musgo);
+    border-bottom: none;
+}
+
+/* --- Menu Hambúrguer (Mobile) --- */
+.side-menu__hamburguer {
+    display: none; 
+    cursor: pointer;
+    font-size: var(--font-size-h2);
+    color: var(--color-base-clara);
+    z-index: 1100;
+}
+.side-menu__toggle {
+    display: none;
+}
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background-color: var(--color-terra-clara); 
+    box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+    z-index: 1050;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    padding-top: var(--space-xxl);
+}
+.side-menu__toggle:checked ~ .side-menu {
+    transform: translateX(0);
+}
+.side-menu__list {
+    list-style: none;
+    padding: var(--space-lg); 
+}
+.side-menu__list li a {
+    display: block;
+    padding: var(--space-md) var(--space-lg); 
+    margin-bottom: var(--space-sm);
+    text-decoration: none;
+    color: var(--color-terra-escura);
+    font-weight: 700;
+    border-radius: var(--space-xs);
+    font-size: var(--font-size-large); 
+}
+.side-menu__list li a:hover {
+    background-color: var(--color-verde-folha);
+}
+.side-menu__close-btn {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-md);
+    font-size: var(--font-size-h2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-terra-escura);
+    line-height: 1;
+}
+
+/*
+ * =================================================================
+ * 5. COMPONENTES E ESTILIZAÇÃO AVANÇADA
+ * =================================================================
+ */
+
+/* 5.1. Botões com Estados Visuais */
+.btn {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background-color: var(--color-verde-musgo);
+    color: var(--color-base-clara);
+    text-decoration: none;
+    border: none;
+    border-radius: var(--space-sm);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+.btn:hover {
+    background-color: var(--color-verde-folha);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.btn:focus {
+    outline: 3px solid var(--color-destaque-sucesso);
+    outline-offset: 2px;
+}
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.btn:active {
+    background-color: var(--color-terra-escura);
+    transform: translateY(0);
+}
+
+/* 5.2. Cards Responsivos */
+.card {
+    background-color: var(--color-base-clara); 
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%; 
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.card-image-half {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    margin-top: var(--space-md);
+    border-radius: var(--space-xs);
+}
+
+/* Fundo para destaque de seção */
+.destaque-ajuda {
+    background-color: var(--color-destaque-fundo); 
+    padding: var(--space-xxl) var(--space-lg);
+    border-radius: var(--space-sm);
+    border: 1px solid var(--color-verde-musgo); 
+}
+
+/* 5.3. Formulários Estilizados com Validação */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-terra-clara);
+    border-radius: var(--space-xs);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-destaque-sucesso);
+    box-shadow: 0 0 0 3px rgba(95, 158, 95, 0.3); 
+}
+
+/* Estilo para fieldset */
+.form-group-set {
+    background-color: var(--color-terra-clara);
+    border: 1px solid var(--color-verde-folha);
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+.form-group-set legend {
+    font-size: var(--font-size-large);
+    font-weight: 700;
+    color: var(--color-terra-escura);
+    padding: 0 var(--space-sm);
+}
+
+/* 5.4. Componentes de Feedback (Alerts/Toasts) */
+.alert {
+    padding: var(--space-md);
+    margin-bottom: var(--space-xl);
+    border: 1px solid transparent;
+    border-radius: var(--space-xs);
+    font-weight: 700;
+    display: none; 
+}
+.alert[role="alert"] {
+    background-color: var(--color-verde-folha);
+    border-color: var(--color-destaque-sucesso);
+    color: var(--color-terra-escura);
+}
+
+/*
+ * =================================================================
+ * 6. MEDIA QUERIES (REQUISITOS: MÍNIMO 5 BREAKPOINTS)
+ * =================================================================
+ */
+
+/* 6.1. Small Devices (Mobile Landscape / Pequeno Tablet - 576px) */
+@media (min-width: 576px) {
+    .hero-section h2 { font-size: 2.25rem; }
+}
+
+/* 6.2. Medium Devices (Tablet - 768px) */
+@media (min-width: 768px) {
+    /* Oculta menu mobile, mostra menu desktop */
+    .side-menu__hamburguer { display: none !important; }
+    .nav { display: block !important; }
+
+    .grid-12 { gap: var(--space-lg); }
+    .grid-projetos { grid-template-columns: repeat(2, 1fr); }
+    
+    .section { padding: var(--space-xxl) 0; }
+}
+
+/* 6.3. Large Devices (Desktop - 1024px) */
+@media (min-width: 1024px) {
+    .grid-projetos { grid-template-columns: repeat(3, 1fr); }
+    .hero-section h2 { font-size: 3rem; }
+}
+
+/* 6.4. Extra Large Devices (Grande Desktop - 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        grid-column-gap: 0;
+        padding: 0;
+    }
+}
+
+/* Oculta o menu principal e mostra o hambúrguer apenas em mobile */
+@media (max-width: 767px) {
+    .nav {
+        display: none; 
+    }
+    .side-menu__hamburguer {
+        display: block; 
+    }
+}
+
+/*
+ * =================================================================
+ * 7. FOOTER
+ * =================================================================
+ */
+.footer {
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara);
+    margin-top: auto; 
+    width: 100%;
+    grid-column: 1 / -1; 
+}
