@@ -38,8 +38,8 @@
         <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
         <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
         
-        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
-            <ul class="side-menu__list">
+        <div class="side-menu-overlay" aria-hidden="true"></div> <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
+            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button> <ul class="side-menu__list">
                 <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
                 <li><a href="contato.html">FALE CONOSCO</a></li>
             </ul>
@@ -100,8 +100,7 @@
 
         <section class="section" aria-labelledby="fale-conosco-title">
             <h2 id="fale-conosco-title">Fale Conosco</h2>
-            <div class="fale-conosco-box">
-                <p><strong>Escritório Central:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
+            <div class="fale-conosco-box" style="background-color: var(--color-terra-clara);"> <p><strong>Escritório Central:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
                 <p><strong>Telefone:</strong> (XX) 99999-9999</p>
                 <p><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
                 <a href="contato.html" class="btn">Fale Conosco &rarr;</a>
