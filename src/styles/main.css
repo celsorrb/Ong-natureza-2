@@ -4,15 +4,20 @@
 
 :root {
     /* 1.1. Cores (9 Cores - Atende as 8 Mínimas) */
-    --color-primary: #1F453B;      /* Verde Escuro (Principal) */
+    --color-primary: #1F453B;      /* Verde Escuro (Principal - Para Títulos) */
     --color-secondary: #38761D;    /* Verde Médio (Destaque/Botões) */
     --color-accent: #1997C6;       /* Azul Ciano (Links, Foco) */
     --color-error: #CC0000;        /* Vermelho (Erros/Invalido) */
     --color-success: #6AA84F;      /* Verde Claro (Sucesso) */
-    --color-text: #333333;         /* Preto Suave (Texto) */
-    --color-neutral-light: #F8F8F8;/* Fundo Secundário (Light) */
+    --color-text: #333333;         /* Preto Suave (Texto do Corpo - Alto Contraste) */
+    --color-neutral-light: #F8F8F8;/* Fundo Secundário (Padrão de containers) */
     --color-neutral-base: #FFFFFF; /* Fundo Principal (Branco) */
     --color-border: #CCCCCC;       /* Neutra 2 */
+
+    /* NOVAS CORES DE FUNDO CLARAS E SÓLIDAS */
+    --bg-index: #E8F6F1;   /* Verde Água Claríssimo */
+    --bg-projetos: #E7F7FB;/* Azul Céu Claríssimo */
+    --bg-cadastro: #FFFBE6;/* Bege/Amarelo Claríssimo */
 
     /* 1.2. Tipografia (5 Tamanhos Mínimos) */
     --font-family-base: 'Quicksand', sans-serif;
@@ -53,38 +58,19 @@ body {
     overflow-x: hidden; 
 }
 
-/* DEGRADÊ 1: INDEX (VERDE ESCURO -> MARROM) */
+/* NOVOS FUNDOS SÓLIDOS E SUAVES */
 .bg-index {
-    background-color: var(--color-neutral-light); 
-    background-image: linear-gradient(to bottom, 
-        var(--color-primary) 0%, 
-        #5F4A39 40%, /* Marrom Terra */
-        var(--color-neutral-light) 75%
-    );
-    background-attachment: fixed;
+    background-color: var(--bg-index); 
 }
 
-/* DEGRADÊ 2: PROJETOS (VERDE MÉDIO -> AZUL) */
 .bg-projetos {
-    background-color: var(--color-neutral-light); 
-    background-image: linear-gradient(to bottom, 
-        var(--color-secondary) 0%, 
-        var(--color-accent) 40%, /* Azul Ciano */
-        var(--color-neutral-light) 75%
-    );
-    background-attachment: fixed;
+    background-color: var(--bg-projetos); 
 }
 
-/* DEGRADÊ 3: CADASTRO (VERDE CLARO -> VERDE MÉDIO) */
 .bg-cadastro {
-    background-color: var(--color-neutral-light); 
-    background-image: linear-gradient(to bottom, 
-        var(--color-success) 0%, 
-        var(--color-secondary) 40%, 
-        var(--color-neutral-light) 75%
-    );
-    background-attachment: fixed;
+    background-color: var(--bg-cadastro); 
 }
+/* FIM DOS NOVOS FUNDOS */
 
 
 .container {
@@ -95,33 +81,27 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--color-primary); /* Cor padrão escura */
+    /* Títulos em Verde Escuro para Alto Contraste */
+    color: var(--color-primary); 
     margin-bottom: var(--space-md);
 }
 
 h1 { font-size: var(--font-size-h1); }
 h2 { 
     font-size: var(--font-size-h2);
+    /* Borda em Verde Claro para Destaque */
     border-bottom: 2px solid var(--color-success); 
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-xl); 
 }
 h3 { font-size: var(--font-size-h3); }
 
-/* **********************************************************
-   CORREÇÃO DE CONTRASTE: Mudar a cor do texto para branco 
-   quando estiver no topo da página (área escura do degradê)
-   ********************************************************** */
-.color-on-dark-background {
-    color: var(--color-neutral-base); /* Texto Branco/Claro */
-    border-color: var(--color-accent) !important; /* Destaque azul (para o H2) */
-}
-/* A cor do 'h2' é ajustada no HTML quando esta classe é aplicada */
-
 .section {
     padding: var(--space-md) 0;
     margin-bottom: var(--space-xxl);
 }
+
+/* CLASSE DE CONTRASTE REMOVIDA (não é mais necessária) */
 
 
 /* ====================================================
@@ -224,6 +204,7 @@ h3 { font-size: var(--font-size-h3); }
    ==================================================== */
 
 .header {
+    /* Mantém o header escuro para contraste com a página */
     background-color: var(--color-primary); 
     color: var(--color-neutral-base);
     padding: var(--space-sm) var(--space-lg);
@@ -382,6 +363,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 .destaque-ajuda {
+    /* Mantém o fundo claro para destaque no projetos.html */
     background-color: var(--color-neutral-light); 
     padding: var(--space-xl) var(--space-lg);
     border-radius: var(--space-sm);
@@ -390,12 +372,14 @@ h3 { font-size: var(--font-size-h3); }
 
 /* 5.3. Formulários Estilizados com Validação Visual */
 .form-group-set {
+    background-color: var(--color-neutral-base); /* Fundo Branco no Formulário */
     border: 1px solid var(--color-border); 
     padding: var(--space-lg);
     margin-bottom: var(--space-lg);
     border-radius: 6px;
 }
 .form-group-set legend {
+    /* Texto da legenda em Verde Escuro */
     color: var(--color-primary); 
     font-weight: 700;
     padding: 0 var(--space-sm);
@@ -407,6 +391,7 @@ h3 { font-size: var(--font-size-h3); }
     display: block;
     margin-bottom: var(--space-sm);
     font-weight: 600;
+    /* Texto do label em Verde Escuro */
     color: var(--color-primary);
 }
 .form-group input,
