@@ -101,6 +101,20 @@ h2 {
     padding: var(--space-xl) 0;
 }
 
+/* NOVO ESTILO: Imagem Principal (Hero) */
+.hero-image {
+    width: 100%;
+    max-height: 250px; /* Limite no Mobile */
+    object-fit: cover;
+    border-radius: var(--space-sm);
+}
+@media (min-width: 1024px) {
+    .hero-image {
+        max-height: 450px; /* Maior no Desktop */
+    }
+}
+/* FIM DO NOVO ESTILO */
+
 /*
  * =================================================================
  * 3. LAYOUT PRINCIPAL (GRID E FLEXBOX)
@@ -177,7 +191,7 @@ h2 {
     height: var(--space-xxl); 
 }
 
-/* --- MENU PRINCIPAL (Desktop) --- */
+/* --- MENU PRINCIPAL TRADICIONAL (Desktop) --- */
 .nav {
     margin-left: auto;
 }
@@ -256,17 +270,17 @@ h2 {
 }
 .side-menu__list {
     list-style: none;
-    padding: var(--space-lg); /* Padding aprimorado */
+    padding: var(--space-lg); 
 }
 .side-menu__list li a {
     display: block;
-    padding: var(--space-md) var(--space-lg); /* Padding aprimorado para toque */
+    padding: var(--space-md) var(--space-lg); 
     margin-bottom: var(--space-sm);
     text-decoration: none;
     color: var(--color-terra-escura);
     font-weight: 700;
     border-radius: var(--space-xs);
-    font-size: var(--font-size-large); /* Fonte maior para mobile */
+    font-size: var(--font-size-large); 
 }
 .side-menu__list li a:hover {
     background-color: var(--color-verde-folha);
@@ -361,7 +375,7 @@ h2 {
     margin-bottom: var(--space-xs);
     font-weight: 700;
 }
-.form-group input, .form-group select {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: var(--space-sm);
     border: 1px solid var(--color-terra-clara);
@@ -370,7 +384,7 @@ h2 {
     font-size: var(--font-size-base);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--color-destaque-sucesso);
     box-shadow: 0 0 0 3px rgba(95, 158, 95, 0.3); 
