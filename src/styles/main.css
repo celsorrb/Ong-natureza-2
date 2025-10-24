@@ -14,10 +14,8 @@
     --color-neutral-base: #FFFFFF; /* Fundo Principal (Branco) */
     --color-border: #CCCCCC;       /* Neutra 2 */
 
-    /* NOVAS CORES DE FUNDO CLARAS E SÓLIDAS */
-    --bg-index: #E8F6F1;   /* Verde Água Claríssimo */
-    --bg-projetos: #E7F7FB;/* Azul Céu Claríssimo */
-    --bg-cadastro: #FFFBE6;/* Bege/Amarelo Claríssimo */
+    /* NOVA COR DE FUNDO UNIFICADA (MARROM SUAVE - PAPEL PARDO) */
+    --bg-pardo-suave: #F8F5F0; 
 
     /* 1.2. Tipografia (5 Tamanhos Mínimos) */
     --font-family-base: 'Quicksand', sans-serif;
@@ -58,17 +56,9 @@ body {
     overflow-x: hidden; 
 }
 
-/* NOVOS FUNDOS SÓLIDOS E SUAVES */
-.bg-index {
-    background-color: var(--bg-index); 
-}
-
-.bg-projetos {
-    background-color: var(--bg-projetos); 
-}
-
-.bg-cadastro {
-    background-color: var(--bg-cadastro); 
+/* NOVOS FUNDOS SÓLIDOS E SUAVES (UNIFICADOS) */
+.bg-index, .bg-projetos, .bg-cadastro {
+    background-color: var(--bg-pardo-suave); 
 }
 /* FIM DOS NOVOS FUNDOS */
 
@@ -100,9 +90,6 @@ h3 { font-size: var(--font-size-h3); }
     padding: var(--space-md) 0;
     margin-bottom: var(--space-xxl);
 }
-
-/* CLASSE DE CONTRASTE REMOVIDA (não é mais necessária) */
-
 
 /* ====================================================
    3. SISTEMA DE GRID (12 COLUNAS) E LEIAUTES AVANÇADOS
@@ -200,7 +187,7 @@ h3 { font-size: var(--font-size-h3); }
 
 
 /* ====================================================
-   4. NAVEGAÇÃO SOFISTICADA E HEADER
+   4. NAVEGAÇÃO SOFISTICADA E HEADER (CORREÇÃO DO HAMBÚRGUER)
    ==================================================== */
 
 .header {
@@ -225,10 +212,10 @@ h3 { font-size: var(--font-size-h3); }
 
 /* Menu Hambúrguer (Apenas no Mobile) */
 .nav__toggle {
-    display: none; 
+    display: none; /* Esconde o checkbox */
 }
 .nav__hamburguer {
-    display: none; 
+    display: none; /* Escondido por padrão, aparece no mobile */
     cursor: pointer;
     font-size: var(--font-size-h2);
     color: var(--color-neutral-base);
@@ -262,10 +249,10 @@ h3 { font-size: var(--font-size-h3); }
 /* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
 @media (max-width: 767px) {
     .nav__hamburguer {
-        display: block; 
+        display: block; /* Mostra o ícone do hambúrguer no mobile */
     }
     .nav__list {
-        display: none;
+        display: none; /* Esconde o menu por padrão no mobile */
         flex-direction: column;
         position: absolute;
         top: 60px; 
@@ -284,6 +271,7 @@ h3 { font-size: var(--font-size-h3); }
         padding: var(--space-md);
     }
     
+    /* Esta regra é acionada pelo checkbox e faz o menu aparecer */
     .nav__toggle:checked ~ .nav .nav__list {
         display: flex;
     }
