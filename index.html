@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionando...</title>
-    <meta http-equiv="refresh" content="0; url=src/pages/index.html">
-    <link rel="canonical" href="src/pages/index.html">
-    <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .message { color: #1F453B; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONG Natureza</title>
+  <link rel="stylesheet" href="src/css/main.css" />
 </head>
 <body>
-    <div class="message">
-        <p>Seu navegador está sendo redirecionado para a página inicial...</p>
-        <p>Se o redirecionamento não funcionar, <a href="src/pages/index.html">clique aqui.</a></p>
-    </div>
+  <header class="container">
+    <nav class="flex">
+      <h1>ONG Natureza</h1>
+      <ul class="flex">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Projetos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="flex">
+      <div class="card">
+        <h2>Projeto 1</h2>
+        <p>Descrição do projeto.</p>
+        <span class="badge">Meio Ambiente</span>
+      </div>
+      <div class="card">
+        <h2>Projeto 2</h2>
+        <p>Descrição do projeto.</p>
+        <span class="badge">Educação</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fale Conosco</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu e-mail" required />
+        <textarea placeholder="Mensagem" required></textarea>
+        <button class="button" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="toast">Mensagem enviada com sucesso!</div>
 </body>
 </html>
