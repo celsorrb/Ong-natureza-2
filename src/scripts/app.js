@@ -1,97 +1,81 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------------------------
+    // 1. Lógica do Menu Lateral (Side-Menu - Correção UX Mobile)
+    // ----------------------------------------------------------------------
+
+    const sideMenuToggle = document.getElementById('side-menu-toggle');
+    const sideMenuCloseBtn = document.getElementById('side-menu-close-btn');
+    const sideMenuLinks = document.querySelectorAll('.side-menu__list a');
+    const sideMenuOverlay = document.querySelector('.side-menu-overlay');
+
+    // Função para fechar o menu
+    const closeSideMenu = () => {
+        if (sideMenuToggle) {
+            sideMenuToggle.checked = false;
+        }
+    };
+
+    // 1.1. Fechar ao clicar no botão 'X'
+    if (sideMenuCloseBtn) {
+        sideMenuCloseBtn.addEventListener('click', closeSideMenu);
+    }
+
+    // 1.2. Fechar ao clicar em um link
+    sideMenuLinks.forEach(link => {
+        link.addEventListener('click', closeSideMenu);
+    });
+
+    // 1.3. Fechar ao clicar no overlay escuro
+    if (sideMenuOverlay) {
+        sideMenuOverlay.addEventListener('click', closeSideMenu);
+    }
+    
+
+    // ----------------------------------------------------------------------
+    // 2. Lógica do Formulário de Cadastro (Validação Mínima)
+    // ----------------------------------------------------------------------
     const form = document.getElementById('volunteer-form');
     const submitBtn = document.getElementById('submit-btn');
-    const successAlert = document.getElementById('success-alert'); // Novo elemento de feedback
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const successAlert = document.getElementById('success-alert');
 
-    // Verifica se o formulário e o botão existem antes de continuar
-    if (!form || !submitBtn) {
-        return; 
-    }
-
-    // Campos obrigatórios que precisam ser validados
-    const requiredInputs = [
-        document.getElementById('nome'),
-        document.getElementById('email'),
-        document.getElementById('interesse')
-    ];
-
-    /**
-     * Valida um formato básico de e-mail usando regex.
-     */
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
-        return re.test(String(email).toLowerCase());
-    }
-
-    /**
-     * Função que verifica se todos os campos obrigatórios estão preenchidos.
-     * Adiciona/remove a classe de erro (is-invalid) para feedback visual.
-     * @returns {boolean} Retorna true se todos estiverem válidos, false caso contrário.
-     */
-    function validateForm() {
-        let isFormValid = true;
-
-        requiredInputs.forEach(input => {
-            const value = input.value.trim();
-
-            // Lógica de validação básica (vazio ou valor padrão do select)
-            if (value === '' || (input.id === 'interesse' && value === 'Selecione a área')) {
-                isFormValid = false;
-                input.classList.add('is-invalid');
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // Validação adicional para o email (formato)
-        const emailInput = document.getElementById('email');
-        if (emailInput && emailInput.value.trim() !== '' && !validateEmail(emailInput.value)) {
-            emailInput.classList.add('is-invalid');
-            isFormValid = false;
-        } 
-        // Se o email não estiver vazio E for válido, garante que a classe seja removida
-        else if (emailInput && emailInput.value.trim() !== '' && validateEmail(emailInput.value)) {
-            emailInput.classList.remove('is-invalid');
-        }
-
-        return isFormValid;
-    }
-
-    /**
-     * Função principal para habilitar ou desabilitar o botão de envio.
-     */
-    function toggleSubmitButton() {
-        if (validateForm()) {
-            submitBtn.removeAttribute('disabled');
-        } else {
-            submitBtn.setAttribute('disabled', 'disabled');
-        }
-    }
-
-    // Adiciona o listener para monitorar mudanças nos campos obrigatórios
-    requiredInputs.forEach(input => {
-        input.addEventListener('input', toggleSubmitButton);
-        input.addEventListener('change', toggleSubmitButton);
-    });
-
-    // Intercepta o envio do formulário para evitar o erro 405 e dar um feedback
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio real do formulário (que daria 405)
+    if (form && submitBtn && nameInput && emailInput) {
         
-        if (validateForm()) {
-            // Se for válido, mostra o alerta de sucesso
+        // Função para checar a validade dos campos críticos
+        const checkValidity = () => {
+            const isNameValid = nameInput.value.trim() !== '';
+            const isEmailValid = emailInput.value.includes('@') && emailInput.value.includes('.');
+
+            if (isNameValid && isEmailValid) {
+                submitBtn.removeAttribute('disabled');
+            } else {
+                submitBtn.setAttribute('disabled', 'disabled');
+            }
+        };
+
+        // Adicionar o evento de input para checar a validade em tempo real
+        nameInput.addEventListener('input', checkValidity);
+        emailInput.addEventListener('input', checkValidity);
+
+        // Lógica de Submissão do Formulário (Apenas demonstração)
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio real
+            
+            // Simular envio de dados
+            console.log('Formulário enviado (simulação):', new FormData(form));
+
+            // Resetar o formulário e mostrar a mensagem de sucesso
+            form.reset();
+            submitBtn.setAttribute('disabled', 'disabled');
+            
             if (successAlert) {
                 successAlert.style.display = 'block';
+                // Ocultar a mensagem após 5 segundos
+                setTimeout(() => {
+                    successAlert.style.display = 'none';
+                }, 5000);
             }
-            
-            // Desabilitar o botão e campos após o "envio" virtual
-            submitBtn.setAttribute('disabled', 'disabled');
-            submitBtn.textContent = 'Enviado!'; // Feedback no próprio botão
-
-            requiredInputs.forEach(input => input.setAttribute('disabled', 'disabled'));
-        }
-    });
-
-    // Chama a função uma vez no carregamento para definir o estado inicial do botão
-    toggleSubmitButton();
+        });
+    }
 });
