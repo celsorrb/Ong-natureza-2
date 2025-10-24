@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato | ONG Natureza - Fale Conosco</title>
+    <title>Fale Conosco | ONG Natureza</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -38,45 +38,66 @@
         <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
         <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
         
-        <div class="side-menu-overlay" aria-hidden="true"></div> <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
-            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button> <ul class="side-menu__list">
+        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
+            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button>
+            <ul class="side-menu__list">
+                <li><a href="index.html">Página Inicial</a></li> 
+                <li><a href="projetos.html">Projetos Sociais</a></li>
+                <li><a href="cadastro.html">Seja Voluntário</a></li>
+                <li style="border-top: 1px solid var(--color-terra-escura); margin: var(--space-md) 0;"></li>
                 <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
                 <li><a href="contato.html" aria-current="page">FALE CONOSCO</a></li>
             </ul>
         </aside>
     </header>
 
-    <div class="photo-overlay">
-        <img id="photo-1" src="../assets/images/projeto_educacao.jpg" alt="Detalhe foto 1">
-        <img id="photo-2" src="../assets/images/missao_colaboracao.jpg" alt="Detalhe foto 2">
-        <img id="photo-3" src="../assets/images/projeto_reflorestamento.jpg" alt="Detalhe foto 3">
-        <img id="photo-4" src="../assets/images/detalhe_plantio.jpg" alt="Detalhe foto 4">
-    </div>
-
     <main class="container">
         <section class="section" aria-labelledby="contato-title">
-            <h2 id="contato-title" style="color: var(--color-terra-escura);">Entre em Contato com a Nossa Equipe</h2>
-            <p style="font-size: var(--font-size-large); margin-bottom: var(--space-xl); color: var(--color-terra-escura);">Seja para dúvidas, parcerias ou imprensa, a equipe de Guardiões da Natureza está pronta para te atender.</p>
-            
-            <div class="grid-projetos">
-                <div class="card" style="background-color: var(--color-base-clara);">
-                    <h3>Escritório Central</h3>
-                    <p>Rua das Flores, 123 - Centro<br>Cidade/UF - CEP 12345-678</p>
-                    <p style="margin-top: var(--space-md); font-weight: 700;">Visitas apenas com agendamento prévio.</p>
-                </div>
-                <div class="card" style="background-color: var(--color-base-clara);">
-                    <h3>Canais Diretos</h3>
-                    <p><strong>E-mail Geral:</strong> contato@ongnatureza.org.br</p>
-                    <p><strong>Telefone:</strong> (XX) 99999-9999 (Segunda a Sexta, 9h às 17h)</p>
-                    <p style="margin-top: var(--space-md); font-weight: 700;">Para suporte técnico ou voluntariado, use o e-mail.</p>
-                </div>
-            </div>
+            <h2 id="contato-title">Fale Conosco</h2>
+            <p>Seja para dúvidas, parcerias ou imprensa, envie-nos uma mensagem. Responderemos o mais breve possível!</p>
 
-            <div class="fale-conosco-box" style="margin-top: var(--space-xxl); background-color: var(--color-terra-clara);">
-                <h3 style="margin-bottom: var(--space-md);">Imprensa e Parcerias</h3>
-                <p>Para solicitações de imprensa, entrevistas ou propostas de parceria corporativa, envie um e-mail direto para:</p>
-                <p style="font-weight: 700; color: var(--color-verde-musgo); margin-top: var(--space-sm);">parcerias@ongnatureza.org.br</p>
+            <div class="grid-12" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; padding: var(--space-xl); background-color: var(--color-terra-clara); border-radius: var(--space-sm);">
+                
+                <div class="contato-info" style="margin-bottom: var(--space-xl);">
+                    <h3>Canais de Atendimento</h3>
+                    <p style="margin-bottom: var(--space-sm);"><strong>E-mail:</strong> contato@ongnatureza.org.br</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>Telefone:</strong> (XX) 99999-9999</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>Endereço:</strong> Rua das Flores, 123 - Centro - Cidade/UF</p>
+                    <p style="font-size: var(--font-size-small); color: var(--color-terra-escura);">Nosso horário de atendimento é de Segunda a Sexta, das 9h às 18h.</p>
+                </div>
+
+                <form id="contact-form" action="" method="POST" novalidate>
+                    <h3>Envie sua Mensagem</h3>
+                    <div class="form-group">
+                        <label for="contact-name">Seu Nome</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Nome Completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Seu E-mail</label>
+                        <input type="email" id="contact-email" name="email" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="margin-top: var(--space-md);">Enviar Mensagem</button>
+                </form>
+
             </div>
+        </section>
+        
+        <section class="section main-actions" aria-labelledby="voluntario-title">
+            <h2 id="voluntario-title">Quer se tornar um voluntário?</h2>
+            <p>Se você deseja colocar a mão na massa e nos ajudar a preservar o planeta, cadastre-se agora mesmo.</p>
+            <a href="cadastro.html" class="btn" style="margin-top: var(--space-md);">Seja um Guardião &rarr;</a>
         </section>
     </main>
 
