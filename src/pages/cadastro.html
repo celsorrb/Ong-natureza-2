@@ -20,11 +20,15 @@
             >
         </div>
         
+        <input type="checkbox" id="nav-toggle" class="nav__toggle">
+        <label for="nav-toggle" class="nav__hamburguer" aria-label="Abrir menu de navegação">☰</label>
+
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html">Início</a></li>
                 <li class="nav__item"><a href="projetos.html">Projetos Sociais</a></li>
                 <li class="nav__item"><a href="cadastro.html" aria-current="page">Seja Voluntário</a></li>
+                <li class="nav__item"><a href="#">Doar <span class="badge">Ajude!</span></a></li>
             </ul>
         </nav>
     </header>
@@ -97,6 +101,10 @@
                 </details>
 
                 <button type="submit" class="btn" id="submit-btn" disabled style="margin-top: 20px;">Enviar e Ser um Guardião</button>
+
+                <div id="success-alert" class="alert">
+                    Cadastro realizado com sucesso! Em breve entraremos em contato.
+                </div>
             </form>
         </section>
         
