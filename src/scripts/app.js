@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideMenuToggle = document.getElementById('side-menu-toggle');
     const sideMenuCloseBtn = document.getElementById('side-menu-close-btn');
     const sideMenuLinks = document.querySelectorAll('.side-menu__list a');
-    const sideMenuHamburguer = document.querySelector('.side-menu__hamburguer');
 
     // Função para fechar o menu
     const closeSideMenu = () => {
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sideMenuCloseBtn.addEventListener('click', closeSideMenu);
     }
 
-    // 1.2. Fechar ao clicar em um link (para UX de navegação)
+    // 1.2. Fechar ao clicar em um link
     sideMenuLinks.forEach(link => {
         link.addEventListener('click', closeSideMenu);
     });
@@ -38,15 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Função para checar a validade dos campos críticos
         const checkValidity = () => {
+            // Requisito básico: nome > 2 caracteres, email contém @ e .
             const isNameValid = nameInput.value.trim().length > 2;
             const isEmailValid = emailInput.value.includes('@') && emailInput.value.includes('.');
 
             if (isNameValid && isEmailValid) {
                 submitBtn.removeAttribute('disabled');
-                submitBtn.classList.remove('btn-disabled');
             } else {
                 submitBtn.setAttribute('disabled', 'disabled');
-                submitBtn.classList.add('btn-disabled');
             }
         };
 
@@ -66,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Resetar o formulário e mostrar a mensagem de sucesso
                 form.reset();
-                checkValidity(); // Desabilita o botão novamente
+                checkValidity(); 
                 
                 if (successAlert) {
                     successAlert.style.display = 'block';
