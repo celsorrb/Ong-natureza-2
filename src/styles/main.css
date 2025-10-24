@@ -3,19 +3,21 @@
    ==================================================== */
 
 :root {
-    /* 1.1. Cores (9 Cores - Atende as 8 Mínimas) */
-    --color-primary: #1F453B;      /* Verde Escuro (Principal - Para Títulos) */
-    --color-secondary: #38761D;    /* Verde Médio (Destaque/Botões) */
-    --color-accent: #1997C6;       /* Azul Ciano (Links, Foco) */
-    --color-error: #CC0000;        /* Vermelho (Erros/Invalido) */
-    --color-success: #6AA84F;      /* Verde Claro (Sucesso) */
-    --color-text: #333333;         /* Preto Suave (Texto do Corpo - Alto Contraste) */
-    --color-neutral-light: #F8F8F8;/* Fundo Secundário (Padrão de containers) */
-    --color-neutral-base: #FFFFFF; /* Fundo Principal (Branco) */
-    --color-border: #CCCCCC;       /* Neutra 2 */
-
-    /* NOVA COR DE FUNDO UNIFICADA (MARROM SUAVE - PAPEL PARDO) */
-    --bg-pardo-suave: #F8F5F0; 
+    /* 1.1. Cores (Nova paleta Marrom-Verde Suave) */
+    
+    /* FUNDO PRINCIPAL: PEDIDO DO CLIENTE #C7A98E */
+    --color-background-principal: #C7A98E; 
+    
+    /* TONS NEUTROS/BASE */
+    --color-base-clara: #FBF7F0;          /* Cor mais clara (Fundo de Cards/Containers - Lighter than body) */
+    --color-terra-clara: #E8D8C3;          /* Marrom Claro Suave (Bordas, Linhas, Fundo de Destaques Secundários) */
+    --color-terra-escura: #4A3C33;        /* Marrom Café (Texto, Títulos, Header, Footer) */
+    
+    /* TONS DE VERDE/DESTAQUE */
+    --color-verde-musgo: #8FA87B;         /* Verde Musgo Suave (Destaque Principal, Botões) */
+    --color-verde-folha: #B7D4A2;         /* Verde Folha Claro (Links, Iconografia, Hover) */
+    --color-destaque-sucesso: #5F9E5F;    /* Verde Esmeralda (Sucesso, Boco, Borda Destaque) */
+    --color-aviso: #CC0000;               /* Vermelho Puro (Erros/Validação) */
 
     /* 1.2. Tipografia (5 Tamanhos Mínimos) */
     --font-family-base: 'Quicksand', sans-serif;
@@ -48,20 +50,18 @@
 body {
     font-family: var(--font-family-base);
     line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-neutral-light);
+    color: var(--color-terra-escura); /* Texto em Marrom Café */
+    background-color: var(--color-background-principal); /* Novo Fundo Padrão #C7A98E */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden; 
 }
 
-/* NOVOS FUNDOS SÓLIDOS E SUAVES (UNIFICADOS) */
+/* FUNDOS SÓLIDOS (TODOS IGUAIS AO NOVO FUNDO PADRÃO) */
 .bg-index, .bg-projetos, .bg-cadastro {
-    background-color: var(--bg-pardo-suave); 
+    background-color: var(--color-background-principal); 
 }
-/* FIM DOS NOVOS FUNDOS */
-
 
 .container {
     max-width: 1200px;
@@ -71,16 +71,16 @@ body {
 }
 
 h1, h2, h3 {
-    /* Títulos em Verde Escuro para Alto Contraste */
-    color: var(--color-primary); 
+    /* Títulos em Marrom Escuro */
+    color: var(--color-terra-escura); 
     margin-bottom: var(--space-md);
 }
 
 h1 { font-size: var(--font-size-h1); }
 h2 { 
     font-size: var(--font-size-h2);
-    /* Borda em Verde Claro para Destaque */
-    border-bottom: 2px solid var(--color-success); 
+    /* Borda em Verde Folha Claro */
+    border-bottom: 2px solid var(--color-verde-folha); 
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-xl); 
 }
@@ -92,7 +92,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 /* ====================================================
-   3. SISTEMA DE GRID (12 COLUNAS) E LEIAUTES AVANÇADOS
+   3. SISTEMA DE GRID E LEIAUTES AVANÇADOS (SEM MUDANÇA DE COR)
    ==================================================== */
 
 /* 3.1. Grid Básico de 12 Colunas (Para estrutura principal) */
@@ -107,6 +107,7 @@ h3 { font-size: var(--font-size-h3); }
 .col-4 { grid-column: span 4; }
 
 /* 3.2. Layouts Responsivos (5 Breakpoints Mínimos) */
+/* ... (MANTIDO INALTERADO) ... */
 
 /* Mobile Padrão (<= 576px) - Padrão Flex/Column */
 .grid-projetos, .content-with-image, .donation-container {
@@ -166,8 +167,7 @@ h3 { font-size: var(--font-size-h3); }
     }
 }
 
-
-/* Estilos de Imagem (Gerais) */
+/* Estilos de Imagem (Gerais) - SEM MUDANÇA DE COR */
 .round-image {
     width: 100%;
     height: auto;
@@ -191,9 +191,9 @@ h3 { font-size: var(--font-size-h3); }
    ==================================================== */
 
 .header {
-    /* Mantém o header escuro para contraste com a página */
-    background-color: var(--color-primary); 
-    color: var(--color-neutral-base);
+    /* Header em Marrom Café */
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara); /* Texto em cor Clara */
     padding: var(--space-sm) var(--space-lg);
     display: flex;
     justify-content: space-between;
@@ -218,7 +218,7 @@ h3 { font-size: var(--font-size-h3); }
     display: none; /* Escondido por padrão, aparece no mobile */
     cursor: pointer;
     font-size: var(--font-size-h2);
-    color: var(--color-neutral-base);
+    color: var(--color-base-clara);
 }
 
 .nav__list {
@@ -232,7 +232,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 .nav__item a {
-    color: var(--color-neutral-base);
+    color: var(--color-base-clara);
     text-decoration: none;
     font-weight: 500;
     padding: var(--space-sm) var(--space-md);
@@ -242,8 +242,9 @@ h3 { font-size: var(--font-size-h3); }
 }
 .nav__item a:hover,
 .nav__item a[aria-current="page"] {
-    background-color: var(--color-secondary); 
-    color: var(--color-neutral-light);
+    /* Destaque do Menu em Verde Musgo */
+    background-color: var(--color-verde-musgo); 
+    color: var(--color-terra-escura);
 }
 
 /* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
@@ -258,7 +259,7 @@ h3 { font-size: var(--font-size-h3); }
         top: 60px; 
         right: 0;
         width: 100%;
-        background-color: var(--color-primary); 
+        background-color: var(--color-terra-escura); 
         box-shadow: 0 4px 5px rgba(0,0,0,0.2);
         padding: var(--space-md) 0;
     }
@@ -285,8 +286,9 @@ h3 { font-size: var(--font-size-h3); }
 /* 5.1. Botões com Estados */
 .btn {
     display: inline-block;
-    background-color: var(--color-secondary); 
-    color: var(--color-neutral-base);
+    /* Botão em Verde Musgo */
+    background-color: var(--color-verde-musgo); 
+    color: var(--color-base-clara);
     padding: var(--space-md) var(--space-lg);
     text-decoration: none;
     border-radius: 5px;
@@ -296,18 +298,21 @@ h3 { font-size: var(--font-size-h3); }
     cursor: pointer;
 }
 .btn:hover {
-    background-color: var(--color-primary); 
+    /* Hover em Verde Folha */
+    background-color: var(--color-verde-folha); 
+    color: var(--color-terra-escura); /* Texto escuro para contraste no hover */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 .btn:focus {
-    outline: 2px solid var(--color-accent); 
+    /* Foco em Verde Esmeralda */
+    outline: 2px solid var(--color-destaque-sucesso); 
     outline-offset: 2px;
 }
 .btn:active {
-    background-color: #2F6D18; 
+    background-color: #6D875C; /* Tom um pouco mais escuro de musgo */
 }
 .btn[disabled] {
-    background-color: var(--color-border); 
+    background-color: var(--color-terra-clara); 
     color: #999999;
     cursor: not-allowed;
     opacity: 0.7;
@@ -316,7 +321,8 @@ h3 { font-size: var(--font-size-h3); }
 
 /* 5.2. Cards e Destaques */
 .card {
-    background-color: var(--color-neutral-base); 
+    /* Fundo de Card em Marrom Mais Claro */
+    background-color: var(--color-base-clara); 
     padding: var(--space-lg);
     border-radius: var(--space-sm);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -343,32 +349,34 @@ h3 { font-size: var(--font-size-h3); }
 
 
 .fale-conosco-box {
-    background-color: var(--color-neutral-base);
+    /* Fundo Branco */
+    background-color: var(--color-base-clara); 
     padding: var(--space-lg);
     border-radius: var(--space-sm);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-terra-clara); /* Borda em Marrom Claro Suave */
     margin-top: var(--space-lg);
 }
 
 .destaque-ajuda {
-    /* Mantém o fundo claro para destaque no projetos.html */
-    background-color: var(--color-neutral-light); 
+    /* Fundo em Marrom Claro (Diferente dos cards) */
+    background-color: var(--color-terra-clara); 
     padding: var(--space-xl) var(--space-lg);
     border-radius: var(--space-sm);
-    border: 1px solid var(--color-success); 
+    border: 1px solid var(--color-destaque-sucesso); /* Borda em Verde Esmeralda */
 }
 
 /* 5.3. Formulários Estilizados com Validação Visual */
 .form-group-set {
-    background-color: var(--color-neutral-base); /* Fundo Branco no Formulário */
-    border: 1px solid var(--color-border); 
+    /* Fundo de Fieldset em Marrom Claro */
+    background-color: var(--color-base-clara); 
+    border: 1px solid var(--color-terra-clara); 
     padding: var(--space-lg);
     margin-bottom: var(--space-lg);
     border-radius: 6px;
 }
 .form-group-set legend {
-    /* Texto da legenda em Verde Escuro */
-    color: var(--color-primary); 
+    /* Texto da legenda em Marrom Escuro */
+    color: var(--color-terra-escura); 
     font-weight: 700;
     padding: 0 var(--space-sm);
 }
@@ -379,31 +387,33 @@ h3 { font-size: var(--font-size-h3); }
     display: block;
     margin-bottom: var(--space-sm);
     font-weight: 600;
-    /* Texto do label em Verde Escuro */
-    color: var(--color-primary);
+    /* Texto do label em Marrom Escuro */
+    color: var(--color-terra-escura);
 }
 .form-group input,
 .form-group select {
     width: 100%;
     padding: var(--space-md);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-terra-clara);
     border-radius: 4px;
     font-family: var(--font-family-base);
     transition: border-color 0.3s;
 }
 .form-group input:focus,
 .form-group select:focus {
-    border-color: var(--color-accent); 
+    /* Foco em Verde Folha */
+    border-color: var(--color-verde-folha); 
     outline: none;
 }
 
 /* Feedback de Validação */
 .is-invalid {
-    border: 2px solid var(--color-error) !important; 
+    /* Borda em Aviso/Erro */
+    border: 2px solid var(--color-aviso) !important; 
     box-shadow: 0 0 5px rgba(204, 0, 0, 0.5);
 }
 .is-invalid:focus {
-    border-color: var(--color-error) !important;
+    border-color: var(--color-aviso) !important;
 }
 
 /* 5.4. Componente de Tag/Badge */
@@ -415,14 +425,16 @@ h3 { font-size: var(--font-size-h3); }
     font-size: var(--font-size-small);
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--color-neutral-base);
-    background-color: var(--color-accent); 
+    /* Badge em Verde Folha */
+    color: var(--color-terra-escura);
+    background-color: var(--color-verde-folha); 
 }
 
 /* 5.5. Componente de Alerta de Feedback (Para o JS do Cadastro) */
 .alert {
-    background-color: var(--color-success); 
-    color: var(--color-neutral-base);
+    /* Alerta de Sucesso em Verde Esmeralda */
+    background-color: var(--color-destaque-sucesso); 
+    color: var(--color-base-clara);
     padding: var(--space-md);
     border-radius: var(--space-xs);
     margin-top: var(--space-md);
@@ -437,7 +449,8 @@ h3 { font-size: var(--font-size-h3); }
 .footer {
     text-align: center;
     padding: var(--space-lg);
-    background-color: var(--color-primary); 
-    color: var(--color-neutral-light);
+    /* Footer em Marrom Escuro */
+    background-color: var(--color-terra-escura); 
+    color: var(--color-base-clara);
     margin-top: auto; 
 }
