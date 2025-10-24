@@ -241,7 +241,7 @@ h3 { font-size: var(--font-size-h3); }
     color: var(--color-terra-escura);
 }
 
-/* --- ESTILOS DO SUBMENU DROPDOWN (Novo Requisito) --- */
+/* --- ESTILOS DO SUBMENU DROPDOWN --- */
 
 .dropdown {
     position: relative; 
@@ -249,7 +249,7 @@ h3 { font-size: var(--font-size-h3); }
 
 .dropdown-menu {
     list-style: none;
-    display: none; /* ESCONDIDO POR PADRÃO NO DESKTOP */
+    display: none; 
     position: absolute;
     top: 100%; 
     left: 0;
@@ -283,7 +283,32 @@ h3 { font-size: var(--font-size-h3); }
     display: block;
 }
 
-/* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
+/* CORREÇÃO CRÍTICA PARA DESKTOP (A PARTIR DE 768px) */
+@media (min-width: 768px) {
+    /* Garante que o menu hambúrguer NUNCA apareça no desktop */
+    .nav__hamburguer {
+        display: none !important;
+    }
+    /* Garante que a lista de links esteja visível e horizontal */
+    .nav__list {
+        display: flex !important;
+        flex-direction: row !important;
+        position: static !important;
+        width: auto !important;
+    }
+    /* Garante que todos os itens estejam visíveis */
+    .nav__item {
+        display: block !important;
+        width: auto !important;
+    }
+    .nav {
+         /* Garante que o nav fique alinhado à direita no header */
+        margin-left: auto; 
+    }
+}
+
+
+/* 4.1. Responsividade da Navegação (Menu Hambúrguer - Ativo APENAS no mobile) */
 @media (max-width: 767px) {
     .nav__hamburguer {
         display: block; 
@@ -324,6 +349,7 @@ h3 { font-size: var(--font-size-h3); }
         padding: 0 0 0 var(--space-xl); /* Recuo para sub-item */
         margin-top: 0;
     }
+    /* Mantém a regra de hover para o dropdown para não quebrar a abertura no mobile */
     .dropdown:hover > .dropdown-menu {
         display: block; 
     }
