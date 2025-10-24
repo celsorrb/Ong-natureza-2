@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
-    // 1. Lógica do Menu Lateral (Side-Menu - Correção UX Mobile)
+    // 1. Lógica do Menu Lateral (Side-Menu - Funcionalidade Mobile)
     // ----------------------------------------------------------------------
 
     const sideMenuToggle = document.getElementById('side-menu-toggle');
     const sideMenuCloseBtn = document.getElementById('side-menu-close-btn');
     const sideMenuLinks = document.querySelectorAll('.side-menu__list a');
-    const sideMenuOverlay = document.querySelector('.side-menu-overlay');
+    const sideMenuHamburguer = document.querySelector('.side-menu__hamburguer');
 
     // Função para fechar o menu
     const closeSideMenu = () => {
@@ -20,19 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         sideMenuCloseBtn.addEventListener('click', closeSideMenu);
     }
 
-    // 1.2. Fechar ao clicar em um link
+    // 1.2. Fechar ao clicar em um link (para UX de navegação)
     sideMenuLinks.forEach(link => {
         link.addEventListener('click', closeSideMenu);
     });
 
-    // 1.3. Fechar ao clicar no overlay escuro
-    if (sideMenuOverlay) {
-        sideMenuOverlay.addEventListener('click', closeSideMenu);
-    }
-    
-
     // ----------------------------------------------------------------------
-    // 2. Lógica do Formulário de Cadastro (Validação Mínima)
+    // 2. Lógica do Formulário de Cadastro (Validação Visual)
     // ----------------------------------------------------------------------
     const form = document.getElementById('volunteer-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -44,13 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Função para checar a validade dos campos críticos
         const checkValidity = () => {
-            const isNameValid = nameInput.value.trim() !== '';
+            const isNameValid = nameInput.value.trim().length > 2;
             const isEmailValid = emailInput.value.includes('@') && emailInput.value.includes('.');
 
             if (isNameValid && isEmailValid) {
                 submitBtn.removeAttribute('disabled');
+                submitBtn.classList.remove('btn-disabled');
             } else {
                 submitBtn.setAttribute('disabled', 'disabled');
+                submitBtn.classList.add('btn-disabled');
             }
         };
 
@@ -58,23 +54,27 @@ document.addEventListener('DOMContentLoaded', () => {
         nameInput.addEventListener('input', checkValidity);
         emailInput.addEventListener('input', checkValidity);
 
-        // Lógica de Submissão do Formulário (Apenas demonstração)
-        form.addEventListener('submit', (event) => {
-            event.preventDefault(); // Impede o envio real
-            
-            // Simular envio de dados
-            console.log('Formulário enviado (simulação):', new FormData(form));
+        // Inicializa o botão como desabilitado na carga da página
+        checkValidity();
 
-            // Resetar o formulário e mostrar a mensagem de sucesso
-            form.reset();
-            submitBtn.setAttribute('disabled', 'disabled');
+        // Lógica de Simulação de Submissão
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); 
             
-            if (successAlert) {
-                successAlert.style.display = 'block';
-                // Ocultar a mensagem após 5 segundos
-                setTimeout(() => {
-                    successAlert.style.display = 'none';
-                }, 5000);
+            if (!submitBtn.disabled) {
+                console.log('Formulário enviado (simulação):', new FormData(form));
+
+                // Resetar o formulário e mostrar a mensagem de sucesso
+                form.reset();
+                checkValidity(); // Desabilita o botão novamente
+                
+                if (successAlert) {
+                    successAlert.style.display = 'block';
+                    // Ocultar a mensagem após 5 segundos
+                    setTimeout(() => {
+                        successAlert.style.display = 'none';
+                    }, 5000);
+                }
             }
         });
     }
