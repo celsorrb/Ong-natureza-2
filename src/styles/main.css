@@ -48,7 +48,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-neutral-light);
     min-height: 100vh;
-    display: flex; /* Para garantir que o footer fique no final */
+    display: flex; 
     flex-direction: column;
 }
 
@@ -56,7 +56,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-lg); 
-    flex-grow: 1; /* Garante que o conteúdo ocupe o espaço disponível */
+    flex-grow: 1; 
 }
 
 h1, h2, h3 {
@@ -84,13 +84,11 @@ h3 { font-size: var(--font-size-h3); }
    ==================================================== */
 
 /* 3.1. Grid Básico de 12 Colunas (Para estrutura principal) */
-/* Definido apenas em breakpoints maiores para respeitar o mobile-first */
 .grid-12-column {
     display: grid;
     grid-template-columns: repeat(12, 1fr); 
     gap: var(--space-lg); 
 }
-/* Classes de Span (col-12 sempre ativo) */
 .col-12 { grid-column: span 12; }
 .col-8 { grid-column: span 8; }
 .col-6 { grid-column: span 6; }
@@ -108,7 +106,6 @@ h3 { font-size: var(--font-size-h3); }
 /* 577px - Small Tablet (Breakpoint 1) */
 @media (min-width: 577px) {
     .grid-projetos {
-        /* 2 colunas para cards menores */
         grid-template-columns: repeat(2, 1fr);
         display: grid;
     }
@@ -116,10 +113,9 @@ h3 { font-size: var(--font-size-h3); }
 
 /* 768px - Tablet (Breakpoint 2) */
 @media (min-width: 768px) {
-    /* Layout principal side-by-side no Index.html (8 e 4 colunas) */
     .content-with-image {
         display: grid;
-        grid-template-columns: 2fr 1fr; /* Proporção ~8 e 4 colunas */
+        grid-template-columns: 2fr 1fr; 
         gap: var(--space-xl);
         align-items: flex-start;
     }
@@ -131,14 +127,12 @@ h3 { font-size: var(--font-size-h3); }
         width: 100%;
     }
     .donation-container .donation-image {
-        /* Retira a ordem negativa do mobile, volta ao fluxo */
         order: initial;
     }
 }
 
 /* 992px - Laptop Médio (Breakpoint 3) */
 @media (min-width: 992px) {
-    /* Layout de doação no Projetos.html (Proporção 60% / 40%) */
     .donation-container {
         display: grid;
         grid-template-columns: 3fr 2fr;
@@ -149,7 +143,6 @@ h3 { font-size: var(--font-size-h3); }
 /* 1200px - Desktop Grande (Breakpoint 4) */
 @media (min-width: 1200px) {
     .grid-projetos {
-        /* 3 colunas para cards */
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -162,7 +155,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 
-/* Estilos de Imagem */
+/* Estilos de Imagem (Gerais) */
 .round-image {
     width: 100%;
     height: auto;
@@ -198,10 +191,10 @@ h3 { font-size: var(--font-size-h3); }
 
 /* Menu Hambúrguer (Apenas no Mobile) */
 .nav__toggle {
-    display: none; /* Esconde o checkbox */
+    display: none; 
 }
 .nav__hamburguer {
-    display: none; /* Será exibido apenas no mobile */
+    display: none; 
     cursor: pointer;
     font-size: var(--font-size-h2);
     color: var(--color-neutral-base);
@@ -214,7 +207,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 .nav__item {
-    position: relative; /* Base para o futuro dropdown */
+    position: relative; 
 }
 
 .nav__item a {
@@ -224,7 +217,7 @@ h3 { font-size: var(--font-size-h3); }
     padding: var(--space-sm) var(--space-md);
     border-radius: 4px;
     transition: background-color 0.3s;
-    white-space: nowrap; /* Impede quebra de linha em itens curtos */
+    white-space: nowrap; 
 }
 .nav__item a:hover,
 .nav__item a[aria-current="page"] {
@@ -235,13 +228,13 @@ h3 { font-size: var(--font-size-h3); }
 /* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
 @media (max-width: 767px) {
     .nav__hamburguer {
-        display: block; /* Mostra o ícone */
+        display: block; 
     }
     .nav__list {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Altura do header */
+        top: 60px; 
         right: 0;
         width: 100%;
         background-color: var(--color-primary);
@@ -257,7 +250,6 @@ h3 { font-size: var(--font-size-h3); }
         padding: var(--space-md);
     }
     
-    /* Mostrar a lista quando o checkbox está checado (Truque do Menu Hambúrguer) */
     .nav__toggle:checked ~ .nav .nav__list {
         display: flex;
     }
@@ -312,6 +304,22 @@ h3 { font-size: var(--font-size-h3); }
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
+
+/* AJUSTE FINAL: Garante que imagens e figures nos cards se ajustem corretamente */
+.card figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-xs); 
+    margin-top: var(--space-md);
+}
+.hero-section figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
 
 .fale-conosco-box {
     background-color: var(--color-neutral-base);
@@ -395,7 +403,7 @@ h3 { font-size: var(--font-size-h3); }
     margin-top: var(--space-md);
     text-align: center;
     font-weight: 700;
-    display: none; /* Inicia oculto, será mostrado pelo JS */
+    display: none; 
 }
 
 /* ====================================================
