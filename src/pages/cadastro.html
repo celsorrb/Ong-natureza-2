@@ -38,8 +38,11 @@
         <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
         <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
         
-        <div class="side-menu-overlay" aria-hidden="true"></div> <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
-            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button> <ul class="side-menu__list">
+        <div class="side-menu-overlay" aria-hidden="true"></div> 
+
+        <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
+            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button>
+            <ul class="side-menu__list">
                 <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
                 <li><a href="contato.html">FALE CONOSCO</a></li>
             </ul>
@@ -50,7 +53,7 @@
         <section class="section" aria-labelledby="cadastro-title">
             <h2 id="cadastro-title">Cadastre-se e Faça a Diferença</h2>
             <p>Preencha o formulário para se juntar à nossa equipe de Guardiões da Natureza. Sua paixão nos move!</p>
-            
+
             <figure style="margin-bottom: var(--space-xl);">
                 <picture>
                     <source srcset="../assets/images/cadastro_pesquisa.webp" type="image/webp">
@@ -63,53 +66,54 @@
                 </picture>
                 <figcaption style="text-align: center;">Mãos na terra, futuro na mente.</figcaption>
             </figure>
-
+            
             <div class="alert" id="success-alert" role="alert" aria-live="assertive">
                 Obrigado por se cadastrar! Sua inscrição foi recebida com sucesso.
             </div>
 
-            <form id="volunteer-form">
+            <form id="volunteer-form" action="" method="GET" novalidate>
+                
                 <fieldset class="form-group-set">
-                    <legend>Informações Pessoais</legend>
+                    <legend>Dados Pessoais *</legend>
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required placeholder="Seu nome completo" aria-required="true">
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required aria-required="true">
                     </div>
+
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" aria-required="true">
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required aria-required="true">
                     </div>
+
                     <div class="form-group">
                         <label for="telefone">Telefone</label>
                         <input type="tel" id="telefone" name="telefone" placeholder="(XX) 99999-9999">
                     </div>
                 </fieldset>
 
-                <fieldset class="form-group-set">
+                <fieldset class="form-group-set" style="margin-top: 20px;">
                     <legend>Endereço</legend>
                     <div class="form-group">
                         <label for="cep">CEP</label>
                         <input type="text" id="cep" name="cep" placeholder="00000-000">
                     </div>
+
                     <div class="form-group">
                         <label for="cidade">Cidade/Estado</label>
                         <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo/SP">
                     </div>
                 </fieldset>
                 
-                <fieldset class="form-group-set">
-                    <legend>Interesses</legend>
-                    <div class="form-group">
-                        <label for="area">Área de Interesse</label>
-                        <select id="area" name="area" required aria-required="true">
-                            <option value="">Selecione uma área</option>
-                            <option value="reflorestamento">Reflorestamento e Plantio</option>
-                            <option value="educacao">Educação Ambiental</option>
-                            <option value="pesquisa">Pesquisa e Monitoramento</option>
-                            <option value="administrativo">Administrativo/Marketing</option>
-                        </select>
-                    </div>
-                </fieldset>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="area">Área de Interesse *</label>
+                    <select id="area" name="area" required aria-required="true">
+                        <option value="">Selecione a área</option>
+                        <option value="reflorestamento">Reflorestamento e Plantio</option>
+                        <option value="educacao">Educação Ambiental</option>
+                        <option value="pesquisa">Pesquisa e Monitoramento</option>
+                        <option value="administrativo">Administrativo/Marketing</option>
+                    </select>
+                </div>
                 
                 <details role="group" class="details-info" style="margin-top: 20px;">
                     <summary>Clique para ler nossa Política de Privacidade</summary>
@@ -120,8 +124,8 @@
             </form>
         </section>
         
-        <section class="section main-actions" aria-labelledby="contato-title-2">
-            <h2 id="contato-title-2">Ainda tem dúvidas?</h2>
+        <section class="section main-actions" aria-labelledby="contato-title">
+            <h2 id="contato-title">Ainda tem dúvidas?</h2>
             <p>Entre em contato conosco por e-mail ou telefone e tire todas as suas dúvidas sobre o trabalho voluntário e doações.</p>
             <a href="contato.html" class="btn" style="margin-top: var(--space-md);">Fale com a Gente</a>
         </section>
