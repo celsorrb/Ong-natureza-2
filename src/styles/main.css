@@ -3,7 +3,7 @@
    ==================================================== */
 
 :root {
-    /* 1.1. Cores (Nova paleta Marrom-Verde Suave) */
+    /* 1.1. Cores (Nova paleta Marrom-Verde Suave - CORES MANTIDAS) */
     
     /* FUNDO PRINCIPAL: PEDIDO DO CLIENTE #C7A98E */
     --color-background-principal: #C7A98E; 
@@ -16,7 +16,7 @@
     /* TONS DE VERDE/DESTAQUE */
     --color-verde-musgo: #8FA87B;         /* Verde Musgo Suave (Destaque Principal, Botões) */
     --color-verde-folha: #B7D4A2;         /* Verde Folha Claro (Links, Iconografia, Hover) */
-    --color-destaque-sucesso: #5F9E5F;    /* Verde Esmeralda (Sucesso, Boco, Borda Destaque) */
+    --color-destaque-sucesso: #5F9E5F;    /* Verde Esmeralda (Sucesso, Foco, Borda Destaque) */
     --color-aviso: #CC0000;               /* Vermelho Puro (Erros/Validação) */
 
     /* 1.2. Tipografia (5 Tamanhos Mínimos) */
@@ -50,8 +50,8 @@
 body {
     font-family: var(--font-family-base);
     line-height: 1.6;
-    color: var(--color-terra-escura); /* Texto em Marrom Café */
-    background-color: var(--color-background-principal); /* Novo Fundo Padrão #C7A98E */
+    color: var(--color-terra-escura); 
+    background-color: var(--color-background-principal); 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,6 @@ body {
 }
 
 h1, h2, h3 {
-    /* Títulos em Marrom Escuro */
     color: var(--color-terra-escura); 
     margin-bottom: var(--space-md);
 }
@@ -79,7 +78,6 @@ h1, h2, h3 {
 h1 { font-size: var(--font-size-h1); }
 h2 { 
     font-size: var(--font-size-h2);
-    /* Borda em Verde Folha Claro */
     border-bottom: 2px solid var(--color-verde-folha); 
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-xl); 
@@ -92,7 +90,7 @@ h3 { font-size: var(--font-size-h3); }
 }
 
 /* ====================================================
-   3. SISTEMA DE GRID E LEIAUTES AVANÇADOS (SEM MUDANÇA DE COR)
+   3. SISTEMA DE GRID E LEIAUTES AVANÇADOS
    ==================================================== */
 
 /* 3.1. Grid Básico de 12 Colunas (Para estrutura principal) */
@@ -107,8 +105,6 @@ h3 { font-size: var(--font-size-h3); }
 .col-4 { grid-column: span 4; }
 
 /* 3.2. Layouts Responsivos (5 Breakpoints Mínimos) */
-/* ... (MANTIDO INALTERADO) ... */
-
 /* Mobile Padrão (<= 576px) - Padrão Flex/Column */
 .grid-projetos, .content-with-image, .donation-container {
     display: flex;
@@ -167,7 +163,7 @@ h3 { font-size: var(--font-size-h3); }
     }
 }
 
-/* Estilos de Imagem (Gerais) - SEM MUDANÇA DE COR */
+/* Estilos de Imagem (Gerais) */
 .round-image {
     width: 100%;
     height: auto;
@@ -187,13 +183,12 @@ h3 { font-size: var(--font-size-h3); }
 
 
 /* ====================================================
-   4. NAVEGAÇÃO SOFISTICADA E HEADER (CORREÇÃO DO HAMBÚRGUER)
+   4. NAVEGAÇÃO SOFISTICADA E HEADER (COM DROPDOWN)
    ==================================================== */
 
 .header {
-    /* Header em Marrom Café */
     background-color: var(--color-terra-escura); 
-    color: var(--color-base-clara); /* Texto em cor Clara */
+    color: var(--color-base-clara); 
     padding: var(--space-sm) var(--space-lg);
     display: flex;
     justify-content: space-between;
@@ -212,10 +207,10 @@ h3 { font-size: var(--font-size-h3); }
 
 /* Menu Hambúrguer (Apenas no Mobile) */
 .nav__toggle {
-    display: none; /* Esconde o checkbox */
+    display: none; 
 }
 .nav__hamburguer {
-    display: none; /* Escondido por padrão, aparece no mobile */
+    display: none; 
     cursor: pointer;
     font-size: var(--font-size-h2);
     color: var(--color-base-clara);
@@ -242,18 +237,59 @@ h3 { font-size: var(--font-size-h3); }
 }
 .nav__item a:hover,
 .nav__item a[aria-current="page"] {
-    /* Destaque do Menu em Verde Musgo */
     background-color: var(--color-verde-musgo); 
     color: var(--color-terra-escura);
+}
+
+/* --- ESTILOS DO SUBMENU DROPDOWN (Novo Requisito) --- */
+
+.dropdown {
+    position: relative; 
+}
+
+.dropdown-menu {
+    list-style: none;
+    display: none; /* ESCONDIDO POR PADRÃO NO DESKTOP */
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    min-width: 220px;
+    
+    background-color: var(--color-terra-escura); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: var(--space-xs);
+    padding: var(--space-sm) 0;
+    z-index: 1010; 
+    margin-top: 0; 
+}
+
+.dropdown-menu a {
+    color: var(--color-base-clara);
+    padding: var(--space-sm) var(--space-md);
+    display: block;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-verde-musgo); 
+    color: var(--color-terra-escura);
+    border-radius: 0;
+}
+
+/* REGRA CHAVE: Mostrar o dropdown no Hover e no Focus */
+.dropdown:hover > .dropdown-menu,
+.dropdown-toggle:focus + .dropdown-menu {
+    display: block;
 }
 
 /* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
 @media (max-width: 767px) {
     .nav__hamburguer {
-        display: block; /* Mostra o ícone do hambúrguer no mobile */
+        display: block; 
     }
     .nav__list {
-        display: none; /* Esconde o menu por padrão no mobile */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 60px; 
@@ -276,6 +312,21 @@ h3 { font-size: var(--font-size-h3); }
     .nav__toggle:checked ~ .nav .nav__list {
         display: flex;
     }
+
+    /* AJUSTE DROPDOWN PARA MOBILE */
+    .dropdown-menu {
+        position: static; 
+        display: block; 
+        min-width: auto;
+        box-shadow: none;
+        background-color: transparent; 
+        border-radius: 0;
+        padding: 0 0 0 var(--space-xl); /* Recuo para sub-item */
+        margin-top: 0;
+    }
+    .dropdown:hover > .dropdown-menu {
+        display: block; 
+    }
 }
 
 
@@ -286,7 +337,6 @@ h3 { font-size: var(--font-size-h3); }
 /* 5.1. Botões com Estados */
 .btn {
     display: inline-block;
-    /* Botão em Verde Musgo */
     background-color: var(--color-verde-musgo); 
     color: var(--color-base-clara);
     padding: var(--space-md) var(--space-lg);
@@ -298,18 +348,16 @@ h3 { font-size: var(--font-size-h3); }
     cursor: pointer;
 }
 .btn:hover {
-    /* Hover em Verde Folha */
     background-color: var(--color-verde-folha); 
-    color: var(--color-terra-escura); /* Texto escuro para contraste no hover */
+    color: var(--color-terra-escura); 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 .btn:focus {
-    /* Foco em Verde Esmeralda */
     outline: 2px solid var(--color-destaque-sucesso); 
     outline-offset: 2px;
 }
 .btn:active {
-    background-color: #6D875C; /* Tom um pouco mais escuro de musgo */
+    background-color: #6D875C; 
 }
 .btn[disabled] {
     background-color: var(--color-terra-clara); 
@@ -321,7 +369,6 @@ h3 { font-size: var(--font-size-h3); }
 
 /* 5.2. Cards e Destaques */
 .card {
-    /* Fundo de Card em Marrom Mais Claro */
     background-color: var(--color-base-clara); 
     padding: var(--space-lg);
     border-radius: var(--space-sm);
@@ -349,25 +396,22 @@ h3 { font-size: var(--font-size-h3); }
 
 
 .fale-conosco-box {
-    /* Fundo Branco */
     background-color: var(--color-base-clara); 
     padding: var(--space-lg);
     border-radius: var(--space-sm);
-    border: 1px solid var(--color-terra-clara); /* Borda em Marrom Claro Suave */
+    border: 1px solid var(--color-terra-clara); 
     margin-top: var(--space-lg);
 }
 
 .destaque-ajuda {
-    /* Fundo em Marrom Claro (Diferente dos cards) */
     background-color: var(--color-terra-clara); 
     padding: var(--space-xl) var(--space-lg);
     border-radius: var(--space-sm);
-    border: 1px solid var(--color-destaque-sucesso); /* Borda em Verde Esmeralda */
+    border: 1px solid var(--color-destaque-sucesso); 
 }
 
 /* 5.3. Formulários Estilizados com Validação Visual */
 .form-group-set {
-    /* Fundo de Fieldset em Marrom Claro */
     background-color: var(--color-base-clara); 
     border: 1px solid var(--color-terra-clara); 
     padding: var(--space-lg);
@@ -375,7 +419,6 @@ h3 { font-size: var(--font-size-h3); }
     border-radius: 6px;
 }
 .form-group-set legend {
-    /* Texto da legenda em Marrom Escuro */
     color: var(--color-terra-escura); 
     font-weight: 700;
     padding: 0 var(--space-sm);
@@ -387,7 +430,6 @@ h3 { font-size: var(--font-size-h3); }
     display: block;
     margin-bottom: var(--space-sm);
     font-weight: 600;
-    /* Texto do label em Marrom Escuro */
     color: var(--color-terra-escura);
 }
 .form-group input,
@@ -401,14 +443,12 @@ h3 { font-size: var(--font-size-h3); }
 }
 .form-group input:focus,
 .form-group select:focus {
-    /* Foco em Verde Folha */
     border-color: var(--color-verde-folha); 
     outline: none;
 }
 
 /* Feedback de Validação */
 .is-invalid {
-    /* Borda em Aviso/Erro */
     border: 2px solid var(--color-aviso) !important; 
     box-shadow: 0 0 5px rgba(204, 0, 0, 0.5);
 }
@@ -425,14 +465,12 @@ h3 { font-size: var(--font-size-h3); }
     font-size: var(--font-size-small);
     font-weight: 700;
     text-transform: uppercase;
-    /* Badge em Verde Folha */
     color: var(--color-terra-escura);
     background-color: var(--color-verde-folha); 
 }
 
 /* 5.5. Componente de Alerta de Feedback (Para o JS do Cadastro) */
 .alert {
-    /* Alerta de Sucesso em Verde Esmeralda */
     background-color: var(--color-destaque-sucesso); 
     color: var(--color-base-clara);
     padding: var(--space-md);
@@ -449,7 +487,6 @@ h3 { font-size: var(--font-size-h3); }
 .footer {
     text-align: center;
     padding: var(--space-lg);
-    /* Footer em Marrom Escuro */
     background-color: var(--color-terra-escura); 
     color: var(--color-base-clara);
     margin-top: auto; 
