@@ -95,14 +95,14 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--color-primary); /* USA PRIMARY */
+    color: var(--color-primary); 
     margin-bottom: var(--space-md);
 }
 
 h1 { font-size: var(--font-size-h1); }
 h2 { 
     font-size: var(--font-size-h2);
-    border-bottom: 2px solid var(--color-success); /* USA SUCCESS */
+    border-bottom: 2px solid var(--color-success); 
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-xl); 
 }
@@ -118,7 +118,77 @@ h3 { font-size: var(--font-size-h3); }
    3. SISTEMA DE GRID (12 COLUNAS) E LEIAUTES AVANÇADOS
    ==================================================== */
 
-/* ... (O código do Grid e Media Queries permanece o mesmo) ... */
+/* 3.1. Grid Básico de 12 Colunas (Para estrutura principal) */
+.grid-12-column {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    gap: var(--space-lg); 
+}
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+
+/* 3.2. Layouts Responsivos (5 Breakpoints Mínimos) */
+
+/* Mobile Padrão (<= 576px) - Padrão Flex/Column */
+.grid-projetos, .content-with-image, .donation-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg); 
+}
+
+/* 577px - Small Tablet (Breakpoint 1) */
+@media (min-width: 577px) {
+    .grid-projetos {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+    }
+}
+
+/* 768px - Tablet (Breakpoint 2) */
+@media (min-width: 768px) {
+    .content-with-image {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        gap: var(--space-xl);
+        align-items: flex-start;
+    }
+    .content-with-image .text-content {
+        order: initial;
+    }
+    .content-with-image .image-content {
+        max-width: none;
+        width: 100%;
+    }
+    .donation-container .donation-image {
+        order: initial;
+    }
+}
+
+/* 992px - Laptop Médio (Breakpoint 3) */
+@media (min-width: 992px) {
+    .donation-container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        align-items: center;
+    }
+}
+
+/* 1200px - Desktop Grande (Breakpoint 4) */
+@media (min-width: 1200px) {
+    .grid-projetos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 1400px - Desktop Extra Grande (Breakpoint 5) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1350px;
+    }
+}
+
 
 /* Estilos de Imagem (Gerais) */
 .round-image {
@@ -144,7 +214,7 @@ h3 { font-size: var(--font-size-h3); }
    ==================================================== */
 
 .header {
-    background-color: var(--color-primary); /* USA PRIMARY */
+    background-color: var(--color-primary); 
     color: var(--color-neutral-base);
     padding: var(--space-sm) var(--space-lg);
     display: flex;
@@ -155,13 +225,79 @@ h3 { font-size: var(--font-size-h3); }
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-/* ... (Resto do Header/Nav permanece o mesmo) ... */
+
+.site-logo {
+    height: var(--space-xxl); 
+    width: auto; 
+    display: block;
+}
+
+/* Menu Hambúrguer (Apenas no Mobile) */
+.nav__toggle {
+    display: none; 
+}
+.nav__hamburguer {
+    display: none; 
+    cursor: pointer;
+    font-size: var(--font-size-h2);
+    color: var(--color-neutral-base);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-md);
+}
+
+.nav__item {
+    position: relative; 
+}
+
+.nav__item a {
+    color: var(--color-neutral-base);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    white-space: nowrap; 
+}
 .nav__item a:hover,
 .nav__item a[aria-current="page"] {
-    background-color: var(--color-secondary); /* USA SECONDARY */
+    background-color: var(--color-secondary); 
     color: var(--color-neutral-light);
 }
-/* ... (Responsividade permanece a mesma) ... */
+
+/* 4.1. Responsividade da Navegação (Menu Hambúrguer) */
+@media (max-width: 767px) {
+    .nav__hamburguer {
+        display: block; 
+    }
+    .nav__list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        width: 100%;
+        background-color: var(--color-primary); 
+        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+        padding: var(--space-md) 0;
+    }
+    .nav__item {
+        text-align: center;
+        width: 100%;
+    }
+    .nav__item a {
+        display: block;
+        padding: var(--space-md);
+    }
+    
+    .nav__toggle:checked ~ .nav .nav__list {
+        display: flex;
+    }
+}
+
 
 /* ====================================================
    5. COMPONENTES DE INTERFACE
@@ -170,7 +306,7 @@ h3 { font-size: var(--font-size-h3); }
 /* 5.1. Botões com Estados */
 .btn {
     display: inline-block;
-    background-color: var(--color-secondary); /* USA SECONDARY */
+    background-color: var(--color-secondary); 
     color: var(--color-neutral-base);
     padding: var(--space-md) var(--space-lg);
     text-decoration: none;
@@ -181,69 +317,144 @@ h3 { font-size: var(--font-size-h3); }
     cursor: pointer;
 }
 .btn:hover {
-    background-color: var(--color-primary); /* USA PRIMARY */
+    background-color: var(--color-primary); 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 .btn:focus {
-    outline: 2px solid var(--color-accent); /* USA ACCENT (Azul) */
+    outline: 2px solid var(--color-accent); 
     outline-offset: 2px;
 }
-/* ... (Resto dos botões permanece o mesmo) ... */
+.btn:active {
+    background-color: #2F6D18; 
+}
+.btn[disabled] {
+    background-color: var(--color-border); 
+    color: #999999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
 
 /* 5.2. Cards e Destaques */
 .card {
-    background-color: var(--color-neutral-base); /* USA NEUTRAL BASE (Branco) */
-    /* ... (Estilos permanecem o mesmo) ... */
+    background-color: var(--color-neutral-base); 
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card figure img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--space-xs); 
+    margin-top: var(--space-md);
+}
+.hero-section figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+
+.fale-conosco-box {
+    background-color: var(--color-neutral-base);
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    border: 1px solid var(--color-border);
+    margin-top: var(--space-lg);
 }
 
 .destaque-ajuda {
-    background-color: var(--color-neutral-light); /* USA NEUTRAL LIGHT */
-    border: 1px solid var(--color-success); /* USA SUCCESS */
-    /* ... (Estilos permanecem o mesmo) ... */
+    background-color: var(--color-neutral-light); 
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--space-sm);
+    border: 1px solid var(--color-success); 
 }
 
 /* 5.3. Formulários Estilizados com Validação Visual */
 .form-group-set {
-    border: 1px solid var(--color-border); /* USA BORDER (Cinza claro) */
-    /* ... (Estilos permanecem o mesmo) ... */
+    border: 1px solid var(--color-border); 
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-radius: 6px;
 }
-
+.form-group-set legend {
+    color: var(--color-primary); 
+    font-weight: 700;
+    padding: 0 var(--space-sm);
+}
+.form-group {
+    margin-bottom: var(--space-md);
+}
 .form-group label {
-    color: var(--color-primary); /* USA PRIMARY */
-    /* ... (Estilos permanecem o mesmo) ... */
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--color-primary);
 }
-
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-family-base);
+    transition: border-color 0.3s;
+}
 .form-group input:focus,
 .form-group select:focus {
-    border-color: var(--color-accent); /* USA ACCENT (Azul) */
+    border-color: var(--color-accent); 
     outline: none;
 }
 
 /* Feedback de Validação */
 .is-invalid {
-    border: 2px solid var(--color-error) !important; /* USA ERROR (Vermelho) */
-    /* ... (Estilos permanecem o mesmo) ... */
+    border: 2px solid var(--color-error) !important; 
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.5);
+}
+.is-invalid:focus {
+    border-color: var(--color-error) !important;
 }
 
 /* 5.4. Componente de Tag/Badge */
 .badge {
-    background-color: var(--color-accent); /* USA ACCENT (Azul) */
-    color: var(--color-neutral-base); /* USA NEUTRAL BASE */
-    /* ... (Estilos permanecem o mesmo) ... */
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    margin-left: var(--space-sm);
+    border-radius: 12px;
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-neutral-base);
+    background-color: var(--color-accent); 
 }
 
-/* 5.5. Componente de Alerta de Feedback */
+/* 5.5. Componente de Alerta de Feedback (Para o JS do Cadastro) */
 .alert {
-    background-color: var(--color-success); /* USA SUCCESS (Verde Claro) */
-    color: var(--color-neutral-base); /* USA NEUTRAL BASE */
-    /* ... (Estilos permanecem o mesmo) ... */
+    background-color: var(--color-success); 
+    color: var(--color-neutral-base);
+    padding: var(--space-md);
+    border-radius: var(--space-xs);
+    margin-top: var(--space-md);
+    text-align: center;
+    font-weight: 700;
+    display: none; 
 }
 
 /* ====================================================
    6. FOOTER
    ==================================================== */
 .footer {
-    background-color: var(--color-primary); /* USA PRIMARY */
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--color-primary); 
     color: var(--color-neutral-light);
-    /* ... (Estilos permanecem o mesmo) ... */
+    margin-top: auto; 
 }
