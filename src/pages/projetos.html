@@ -23,27 +23,10 @@
         <nav class="nav" aria-label="Navegação Principal do Site">
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html">Início</a></li>
-                
-                <li class="nav__item dropdown">
-                    <a href="projetos.html" class="dropdown-toggle" aria-current="page" aria-expanded="true" aria-haspopup="true">Projetos Sociais</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="projetos.html#reflorestamento">Reflorestamento</a></li>
-                        <li><a href="projetos.html#educacao">Educação Ambiental</a></li>
-                    </ul>
-                </li>
+                <li class="nav__item"><a href="projetos.html" aria-current="page">Projetos Sociais</a></li>
                 <li class="nav__item"><a href="cadastro.html">Seja Voluntário</a></li>
             </ul>
         </nav>
-
-        <input type="checkbox" id="side-menu-toggle" class="side-menu__toggle">
-        <label for="side-menu-toggle" class="side-menu__hamburguer" aria-label="Abrir menu secundário de contato">☰</label>
-        
-        <div class="side-menu-overlay" aria-hidden="true"></div> <aside class="side-menu" aria-label="Menu Secundário de Contato e Doação">
-            <button class="side-menu__close-btn" id="side-menu-close-btn" aria-label="Fechar menu secundário">X</button> <ul class="side-menu__list">
-                <li><a href="doacoes.html">FAZER DOAÇÃO</a></li>
-                <li><a href="contato.html">FALE CONOSCO</a></li>
-            </ul>
-        </aside>
     </header>
 
     <main class="container">
@@ -52,7 +35,7 @@
             <p>Acreditamos que a ação local gera impacto global. Nossos projetos são estruturados em pilares essenciais que buscam a restauração e a educação ambiental contínua.</p>
 
             <div class="grid-projetos">
-                <article class="card" id="reflorestamento">
+                <article class="card">
                     <h3>Pilar I: Reflorestamento Estratégico</h3>
                     <p>Foco na recuperação de áreas de preservação permanente (APPs) e nascentes, utilizando apenas sementes nativas e promovendo a biodiversidade.</p>
                     
@@ -70,7 +53,7 @@
                     </figure>
                 </article>
 
-                <article class="card" id="educacao">
+                <article class="card">
                     <h3>Pilar II: Consciência Ecológica</h3>
                     <p>Workshops, palestras e materiais digitais para escolas e comunidades, transformando cidadãos em agentes de mudança ambiental.</p>
                     <figure>
@@ -96,7 +79,7 @@
             <div class="donation-container">
                 <div class="donation-text">
                     <p>Seja mensal, trimestral ou um único valor, sua ajuda faz a diferença. Utilizamos 100% dos recursos em mudas, manutenção de áreas e materiais educativos.</p>
-                    <a href="doacoes.html" class="btn" aria-label="Acessar página de doação">Quero Doar Agora &rarr;</a>
+                    <a href="cadastro.html" class="btn" aria-label="Acessar formulário para se tornar um voluntário">Quero ser Voluntário &rarr;</a>
                 </div>
                 <figure class="donation-image">
                     <picture>
