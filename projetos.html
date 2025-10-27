@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos Sociais | ONG Natureza</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Ong-natureza-2/assets/css/style.css">
 </head>
 <body>
     
@@ -15,14 +12,14 @@
         <div class="container header-content">
             
             <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="Logo ONG Natureza: Reflorestamento e Vida">
+                <img src="/Ong-natureza-2/assets/img/logo.png" alt="Logo ONG Natureza: Reflorestamento e Vida">
             </a>
 
             <nav class="main-nav" id="main-nav">
                 <ul class="nav-list">
                     <li><a href="index.html">Home</a></li>
                     <li class="has-submenu">
-                        <a href="projetos.html" class="active" aria-current="page">Projetos Sociais</a>
+                        <a href="projetos.html" class="active">Projetos Sociais</a>
                         <ul class="submenu">
                             <li><a href="#reflorestamento">Reflorestamento</a></li>
                             <li><a href="#educacao">Educação Ambiental</a></li>
@@ -36,117 +33,70 @@
 
             <div class="header-actions">
                 <a href="cadastro.html" class="button button-primary button-small">Voluntariado</a>
+                <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
-            
-            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir Menu Principal">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
         </div>
     </header>
 
     <main>
         
-        <section class="hero hero-projetos" aria-labelledby="hero-projetos-title">
-            <div class="hero-content container">
-                <h1 id="hero-projetos-title">Nossas Ações Transformadoras</h1>
-                <p class="hero-subtitle">Conheça em detalhes os pilares que movem o trabalho da ONG Natureza e como você pode participar.</p>
+        <section class="hero-section hero-projetos">
+            <div class="container hero-content">
+                <h1 class="hero-title text-center">Nossos Projetos: Ação e Transformação</h1>
+                <p class="hero-subtitle text-center">Conheça as iniciativas que a ONG Natureza lidera para proteger o meio ambiente e engajar a sociedade.</p>
             </div>
         </section>
 
-        <section class="section container" aria-labelledby="lista-projetos-title">
-            <h2 id="lista-projetos-title">Projetos Atuais em Destaque</h2>
-            
-            <div class="grid grid-12-cols card-grid">
+        <section class="section section-projetos">
+            <div class="container">
+                <h2 class="section-title text-center">Nossas Áreas de Atuação</h2>
+                <p class="text-center text-intro">Trabalhamos em três pilares fundamentais para garantir um impacto duradouro.</p>
                 
-                <article class="col-md-4 card" id="reflorestamento" aria-labelledby="reflorestamento-title">
-                    <picture>
-                        <source srcset="assets/img/projeto_reflorestamento.webp" type="image/webp">
-                        <img 
-                            src="assets/img/projeto_reflorestamento.jpg" 
-                            alt="Voluntários plantando ativamente novas mudas em um campo." 
-                            loading="lazy" 
-                        >
-                    </picture>
-                    <div class="card-body">
-                        <span class="badge badge-primary">Foco Principal</span>
-                        <h3 id="reflorestamento-title">Reflorestamento de Áreas Degradadas</h3>
-                        <p>Plantio de mudas nativas em áreas críticas de bacias hidrográficas, garantindo a recuperação da fauna e flora locais.</p>
-                        <ul class="card-details">
-                            <li>**Status:** Em Andamento</li>
-                            <li>**Meta:** 10.000 árvores/ano</li>
-                        </ul>
-                        <a href="cadastro.html" class="button button-link">Saiba Mais &rarr;</a>
-                    </div>
-                </article>
+                <div class="grid grid-12-cols cards-list">
+                    
+                    <article id="reflorestamento" class="col-md-4 card">
+                        <img src="/Ong-natureza-2/assets/img/projeto_reflorestamento.jpg" alt="Pessoas plantando mudas de árvores" class="card-image">
+                        <div class="card-body">
+                            <span class="badge badge-primary">Ação Direta</span>
+                            <h3>Reflorestamento de Matas Ciliares</h3>
+                            <p>Foco na recuperação de áreas degradadas, especialmente em nascentes e margens de rios, utilizando mudas de espécies nativas do bioma local.</p>
+                            <a href="#" class="button button-link">Saiba Mais &rarr;</a>
+                        </div>
+                    </article>
 
-                <article class="col-md-4 card" id="educacao" aria-labelledby="educacao-title">
-                    <picture>
-                        <source srcset="assets/img/projeto_educacao.webp" type="image/webp">
-                        <img 
-                            src="assets/img/projeto_educacao.jpg" 
-                            alt="Crianças em um jardim aprendendo sobre ecossistemas com um monitor." 
-                            loading="lazy" 
-                        >
-                    </picture>
-                    <div class="card-body">
-                        <span class="badge badge-secondary">Comunidade</span>
-                        <h3 id="educacao-title">Educação e Conscientização em Escolas</h3>
-                        <p>Programas educativos que levam o conhecimento sobre sustentabilidade e biodiversidade para estudantes do ensino fundamental.</p>
-                        <ul class="card-details">
-                            <li>**Status:** Contínuo</li>
-                            <li>**Impacto:** 500 alunos/mês</li>
-                        </ul>
-                        <a href="cadastro.html" class="button button-link">Saiba Mais &rarr;</a>
-                    </div>
-                </article>
+                    <article id="educacao" class="col-md-4 card">
+                        <img src="/Ong-natureza-2/assets/img/projeto_educacao.jpg" alt="Adultos e crianças em uma atividade de educação ambiental" class="card-image">
+                        <div class="card-body">
+                            <span class="badge badge-secondary">Conscientização</span>
+                            <h3>Educação e Capacitação Comunitária</h3>
+                            <p>Desenvolvimento de oficinas, palestras e materiais educativos para engajar escolas, empresas e comunidades na importância da sustentabilidade.</p>
+                            <a href="#" class="button button-link">Saiba Mais &rarr;</a>
+                        </div>
+                    </article>
 
-                <article class="col-md-4 card" id="pesquisa" aria-labelledby="pesquisa-title">
-                    <picture>
-                        <source srcset="assets/img/cadastro_pesquisa.webp" type="image/webp">
-                        <img 
-                            src="assets/img/cadastro_pesquisa.jpg" 
-                            alt="Mãos segurando uma amostra de solo em uma placa de petri em laboratório." 
-                            loading="lazy" 
-                        >
-                    </picture>
-                    <div class="card-body">
-                        <span class="badge badge-tertiary">Ciência</span>
-                        <h3 id="pesquisa-title">Monitoramento de Fauna e Flora</h3>
-                        <p>Pesquisa científica contínua para monitorar o retorno da vida selvagem nas áreas de reflorestamento e avaliar a qualidade da água.</p>
-                        <ul class="card-details">
-                            <li>**Status:** Pesquisa</li>
-                            <li>**Parceiros:** Universidades Locais</li>
-                        </ul>
-                        <a href="cadastro.html" class="button button-link">Saiba Mais &rarr;</a>
-                    </div>
-                </article>
+                    <article id="pesquisa" class="col-md-4 card">
+                        <img src="/Ong-natureza-2/assets/img/cadastro_pesquisa.jpg" alt="Pesquisadora observando plantas em uma área de floresta" class="card-image">
+                        <div class="card-body">
+                            <span class="badge badge-tertiary">Ciência</span>
+                            <h3>Pesquisa e Monitoramento da Biodiversidade</h3>
+                            <p>Monitoramos o impacto de nossas ações na fauna e flora local, utilizando dados científicos para otimizar os métodos de reflorestamento e proteção.</p>
+                            <a href="#" class="button button-link">Saiba Mais &rarr;</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </section>
 
-        <section class="section destaque-ajuda" aria-labelledby="apoio-title">
-            <div class="container content-with-image inverted-layout">
-                <figure class="image-content">
-                    <picture>
-                        <source srcset="assets/img/detalhe_plantio.webp" type="image/webp">
-                        <img 
-                            src="assets/img/detalhe_plantio.jpg" 
-                            alt="Mudas de plantas em crescimento sendo cuidadas por mãos em luvas." 
-                            loading="lazy" 
-                            class="round-image"
-                        >
-                    </picture>
-                    <figcaption>Apoie o crescimento de uma nova floresta.</figcaption>
-                </figure>
-                <div class="text-content">
-                    <h2 id="apoio-title">Seu Apoio é o Combustível da Natureza.</h2>
-                    <p>Seja um Doador ou Voluntário. Sua contribuição mensal ajuda a manter nossos projetos ativos. Doe e garanta o plantio de 5 novas árvores nativas.</p>
-                    <div style="margin-top: 30px;">
-                        <a href="#" class="button button-primary button-large">Quero Doar Agora</a>
-                    </div>
-                </div>
+        <section class="section section-cta-projects bg-secondary-light">
+            <div class="container">
+                <h2>Faça Parte Desta Transformação</h2>
+                <p>O seu cadastro como voluntário nos ajuda a expandir o alcance de todos esses projetos.</p>
+                <a href="cadastro.html" class="button button-primary button-large">Quero me Cadastrar</a>
             </div>
         </section>
 
@@ -180,6 +130,6 @@
         </div>
     </footer>
     
-    <script src="assets/js/app.js"></script>
+    <script src="/Ong-natureza-2/assets/js/app.js"></script>
 </body>
 </html>
