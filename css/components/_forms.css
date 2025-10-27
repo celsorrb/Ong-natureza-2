@@ -1,0 +1,129 @@
+/*
+ * Arquivo: _forms.css
+ * Descrição: Estilização do formulário de cadastro, agrupamento e validação visual.
+ * Requisito: Utilizar agrupamento lógico, validação nativa e validação visual (CSS).
+ */
+
+/* 1. Layout Base do Formulário */
+.main-form {
+    background-color: var(--color-background);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Aplica o Grid dentro do Formulário para organizar os campos em colunas */
+.form-group {
+    /* Reseta estilos padrão de fieldset */
+    border: none;
+    padding: 0;
+    margin-bottom: var(--space-l);
+    
+    display: grid;
+    /* Colunas: 1fr para mobile. Será 12 colunas no desktop */
+    grid-template-columns: 1fr; 
+    gap: var(--space-s);
+}
+
+.form-group legend {
+    font-size: var(--font-size-h3);
+    color: var(--color-primary-dark);
+    font-weight: bold;
+    margin-bottom: var(--space-m);
+    padding-bottom: var(--space-xs);
+    border-bottom: 2px solid var(--color-neutral-light);
+}
+
+/* 2. Estilo Padrão do Campo */
+.form-field {
+    /* Para o mobile, cada campo ocupa 100% da largura (1fr) */
+    width: 100%;
+}
+
+.form-field label {
+    display: block;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-xs);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="date"],
+.form-field input[type="tel"],
+.form-field select {
+    width: 100%;
+    padding: var(--space-s);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-base);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-speed);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.2); /* Sombra de foco sutil */
+}
+
+/* 3. Estilo para Placeholder (Sugestão de Máscaras) */
+/* A validação das máscaras é feita via atributo pattern no HTML */
+input::placeholder {
+    color: #aaa;
+    opacity: 1; 
+}
+
+
+/* ------------------------------------------------
+ * 4. VALIDAÇÃO VISUAL (Requisito CSS3)
+ * ------------------------------------------------ */
+
+/* Cor do Borda/Feedback quando o campo é válido (sem erro) */
+.form-field input:valid:not(:placeholder-shown),
+.form-field select:valid {
+    border-color: var(--color-success); /* Borda verde */
+    padding-right: 30px; /* Espaço para o ícone de sucesso */
+    background-image: url("data:image/svg+xml,..."); /* Icone de check (simulado) */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Cor do Borda/Feedback quando o campo é inválido (erro) */
+.form-field input:invalid:not(:placeholder-shown),
+.form-field input[aria-invalid="true"],
+.form-field select:invalid {
+    border-color: var(--color-danger); /* Borda vermelha */
+    padding-right: 30px; /* Espaço para o ícone de erro */
+    background-image: url("data:image/svg+xml,..."); /* Icone de X (simulado) */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Oculta mensagens de validação por padrão (apenas visível em caso de erro real com JS ou CSS :invalid) */
+.validation-message {
+    display: none; 
+    font-size: var(--font-size-small);
+    color: var(--color-danger);
+    margin-top: var(--space-xs);
+}
+
+
+/* ------------------------------------------------
+ * 5. Responsividade Específica do Formulário
+ * ------------------------------------------------ */
+
+/* Ativa o Grid de 12 colunas dentro do Fieldset (para que o col-md-X funcione) */
+@media (min-width: 768px) {
+    .form-group {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--space-m);
+    }
+    
+    /* Aplica as larguras das colunas do formulário (usando classes do _breakpoints.css) */
+    .form-field.col-md-4 { grid-column: span 4; }
+    .form-field.col-md-6 { grid-column: span 6; }
+    .form-field.col-md-8 { grid-column: span 8; }
+    .form-field.col-span-12 { grid-column: span 12; }
+}

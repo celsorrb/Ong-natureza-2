@@ -1,0 +1,12 @@
+/* ... Conteúdo anterior ... */
+
+/* ------------------------------------------------
+ * 3. COMPONENTES (Elementos Reutilizáveis)
+ * ------------------------------------------------ */
+@import url('./components/_buttons.css');  /* Botões e Estados */
+@import url('./components/_cards.css');    /* Cards de Projetos */
+@import url('./components/_navigation.css');/* Navegação e Menu Hambúrguer */
+@import url('./components/_forms.css');    /* Formulários e Validação Visual */
+@import url('./components/_feedback.css'); /* **COMPONENTE DE FEEDBACK** */
+
+/* ... Resto do conteúdo ... */

@@ -1,0 +1,88 @@
+/*
+ * Arquivo: _cards.css
+ * Descrição: Estilização do sistema de cards responsivos e badges.
+ * Requisito: Desenvolver sistema de cards responsivos e criar sistema de badges e tags.
+ */
+
+/* ------------------------------------------------
+ * 1. Estilização dos Cards
+ * ------------------------------------------------ */
+
+.card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-neutral-light);
+    border-radius: var(--border-radius-base);
+    overflow: hidden; /* Garante que a imagem respeite o border-radius no topo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sutil sombra para profundidade */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação sutil ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    /* Garante que a imagem preencha a largura total do card */
+    width: 100%;
+    /* Define uma altura fixa para que todos os cards fiquem uniformes,
+       e usa object-fit para que a imagem não se distorça. */
+    height: 200px; 
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: var(--space-s);
+}
+
+.card-body h3 {
+    /* Sobrescreve a margem padrão do h3 no card para ficar mais compacto */
+    margin-top: 0;
+    margin-bottom: var(--space-xs); 
+}
+
+/* ------------------------------------------------
+ * 2. Estilização dos Badges/Tags
+ * ------------------------------------------------ */
+
+.badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-s);
+    margin-bottom: var(--space-s); /* Espaçamento abaixo do badge */
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    border-radius: var(--border-radius-base);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos de Cores para Badges (usando as variáveis) */
+
+.badge-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.badge-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.badge-tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--color-text-light);
+}
+
+/* Outros elementos de layout usados no index.html */
+.section {
+    padding: var(--space-xl) 0; /* Espaçamento entre as seções */
+}
+
+.bg-neutral-light {
+    background-color: var(--color-neutral-light);
+}
+
+.image-wrapper img {
+    border-radius: var(--border-radius-base);
+}

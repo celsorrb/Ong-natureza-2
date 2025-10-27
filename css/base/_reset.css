@@ -1,0 +1,52 @@
+/*
+ * Arquivo: _reset.css
+ * Descrição: Reset/Normalize básico para consistência entre navegadores.
+ */
+
+/* 1. Reset Básico de Margens e Padding */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Configurações base do corpo */
+body {
+    line-height: 1.5; /* Melhor legibilidade */
+    -webkit-font-smoothing: antialiased; /* Suaviza fontes no Chrome/Safari */
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+}
+
+/* 3. Imagens e Mídia (Responsividade e Acessibilidade) */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%; /* Garante que mídias sejam responsivas */
+}
+
+/* 4. Elementos de Formulário */
+input,
+button,
+textarea,
+select {
+    font: inherit; /* Garante que usem a fonte base */
+}
+
+/* 5. Remoção de Estilos em Listas (serão estilizadas no _typography.css ou components) */
+ul, ol {
+    list-style: none;
+}
+
+/* 6. Links sem decoração por padrão (serão estilizados no _typography.css) */
+a {
+    text-decoration: none;
+    color: inherit;
+}

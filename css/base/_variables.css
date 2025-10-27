@@ -1,0 +1,58 @@
+/*
+ * Arquivo: _variables.css
+ * Descrição: Sistema de Design da ONG Natureza (Variáveis CSS Customizadas)
+ * Requisito: Desenvolver design system consistente com variáveis CSS customizadas.
+ */
+
+:root {
+    /* ------------------------------------------------
+     * 1. PALETA DE CORES (Mínimo 8 cores)
+     * ------------------------------------------------ */
+    
+    /* Primárias e Destaque (Verdes e Azul Petróleo do Logo) */
+    --color-primary: #4CAF50;          /* Verde Principal (Logo) */
+    --color-primary-dark: #2E7D32;     /* Verde Escuro (Hover, Fundo Nav) */
+    --color-secondary: #00838F;        /* Azul-Petróleo (Destaques, Água) */
+    --color-tertiary: #8D6E63;         /* Marrom (Terra) */
+
+    /* Neutras */
+    --color-text-dark: #212121;        /* Texto Principal */
+    --color-text-light: #F5F5F5;       /* Texto em fundos escuros */
+    --color-background: #FFFFFF;       /* Fundo da página */
+    --color-neutral-light: #F5F5F5;    /* Fundo de Seções Claras/Cards */
+    
+    /* Feedback (Alerts, Forms) */
+    --color-success: #43A047;          /* Sucesso/Validação Positiva */
+    --color-warning: #FFB300;          /* Alerta */
+    --color-danger: #E53935;           /* Erro/Validação Negativa */
+    
+    /* ------------------------------------------------
+     * 2. TIPOGRAFIA (Mínimo 5 tamanhos)
+     * ------------------------------------------------ */
+    
+    --font-family-base: 'Arial', sans-serif;
+    --font-size-base: 1rem;            /* 16px */
+    
+    --font-size-h1: 3rem;              /* 48px */
+    --font-size-h2: 2rem;              /* 32px */
+    --font-size-h3: 1.5rem;            /* 24px */
+    --font-size-h4: 1.25rem;           /* 20px */
+    --font-size-small: 0.875rem;       /* 14px (Menus, Legendas) */
+
+    /* ------------------------------------------------
+     * 3. ESPAÇAMENTO MODULAR (Escala de 8px)
+     * ------------------------------------------------ */
+    
+    --space-xs: 0.5rem;   /* 8px */
+    --space-s: 1rem;      /* 16px */
+    --space-m: 1.5rem;    /* 24px */
+    --space-l: 2rem;      /* 32px */
+    --space-xl: 3rem;     /* 48px */
+    --space-xxl: 4rem;    /* 64px */
+
+    /* ------------------------------------------------
+     * 4. Outras Variáveis Comuns
+     * ------------------------------------------------ */
+    --border-radius-base: 0.5rem;
+    --transition-speed: 0.3s;
+}

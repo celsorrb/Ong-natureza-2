@@ -1,0 +1,75 @@
+/*
+ * Arquivo: _breakpoints.css
+ * Descrição: Definição dos Media Queries e utilitários de responsividade.
+ * Requisito: Criar no mínimo 5 breakpoints responsivos bem definidos.
+ */
+
+/* * 1. DEFINIÇÃO DOS BREAKPOINTS (Mobile First)
+ * Utilizaremos 5 breakpoints comuns para um design robusto.
+ * As classes utilitárias de Grid (ex: col-md-4) utilizarão estes valores.
+ */
+
+/* Breakpoint 1: MÁXIMO-P (Dispositivos muito pequenos, até 480px) */
+@media (max-width: 480px) {
+    /* Exemplo: Ajuste de padding em telas muito estreitas */
+    .container {
+        padding: var(--space-s); /* Reduz o padding do container */
+    }
+}
+
+/* Breakpoint 2: MÍNIMO-MD (Tablets Verticais, a partir de 576px) */
+@media (min-width: 576px) {
+    :root {
+        /* Ajuste de tipografia para telas maiores */
+        --font-size-h1: 3.2rem;
+    }
+}
+
+/* Breakpoint 3: MÍNIMO-LG (Tablets Horizontais / Desktop Pequeno, a partir de 768px) */
+@media (min-width: 768px) {
+    /* Onde o Grid de 12 colunas geralmente se aplica */
+    .container {
+        padding: var(--space-xl);
+    }
+}
+
+/* Breakpoint 4: MÍNIMO-XL (Desktop Médio, a partir de 992px) */
+@media (min-width: 992px) {
+    :root {
+        --font-size-h1: 4rem;
+        --font-size-h2: 2.5rem;
+    }
+}
+
+/* Breakpoint 5: MÍNIMO-XXL (Desktop Grande, a partir de 1200px) */
+@media (min-width: 1200px) {
+    /* Onde o max-width do container é atingido */
+    .container {
+        max-width: 1300px;
+    }
+}
+
+/* Breakpoint 6: MÍNIMO-MAX (Desktop Ultra, a partir de 1400px) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1500px;
+    }
+}
+
+
+/* * 2. UTILITY CLASSES (Classes utilitárias de visibilidade para Mobile/Desktop)
+ */
+
+/* Esconde o elemento em Mobile e mostra a partir de 768px */
+.hidden-xs {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .hidden-xs {
+        display: block !important;
+    }
+    .visible-xs {
+        display: none !important;
+    }
+}

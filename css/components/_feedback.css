@@ -1,0 +1,54 @@
+/*
+ * Arquivo: _feedback.css
+ * Descrição: Estilização de componentes de feedback (alerts, toasts, mensagens de erro).
+ * Requisito: Desenvolver componentes de feedback visual (alerts, toasts, modals) - Alerts/Toasts.
+ */
+
+/* ------------------------------------------------
+ * 1. ALERTS/MENSAGENS DE FEEDBACK (Estilo Base)
+ * ------------------------------------------------ */
+
+.alert {
+    /* Estilos Comuns */
+    padding: var(--space-m);
+    border-radius: var(--border-radius-base);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    margin-bottom: var(--space-l);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: var(--space-s); /* Espaço entre ícone e texto */
+}
+
+/* Garante que o ícone (se houver, como um SVG ou caractere) fique visível */
+.alert > span {
+    font-size: var(--font-size-h3);
+    flex-shrink: 0;
+}
+
+/* ------------------------------------------------
+ * 2. TIPOS DE ALERTS (Usando Cores de Feedback)
+ * ------------------------------------------------ */
+
+/* Feedback de Sucesso (Ex: Cadastro Concluído) */
+.alert-success {
+    /* Usa a função color-mix para criar um fundo claro a partir da cor de sucesso */
+    background-color: color-mix(in srgb, var(--color-success) 10%, var(--color-background)); 
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+/* Feedback de Erro (Ex: Falha no Envio) */
+.alert-danger {
+    background-color: color-mix(in srgb, var(--color-danger) 10%, var(--color-background)); 
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+/* Feedback de Alerta/Atenção (Ex: Campo Opcional) */
+.alert-warning {
+    background-color: color-mix(in srgb, var(--color-warning) 10%, var(--color-background)); 
+    color: var(--color-warning);
+    border-color: var(--color-warning);
+}

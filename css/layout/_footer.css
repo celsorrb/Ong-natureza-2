@@ -1,0 +1,35 @@
+/*
+ * Arquivo: _footer.css
+ * Descrição: Estilização do rodapé da página.
+ */
+
+.main-footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: var(--space-xxl) 0 var(--space-l) 0;
+    font-size: var(--font-size-small);
+}
+
+.main-footer h3 {
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-s);
+}
+
+.main-footer p,
+.main-footer ul li {
+    margin-bottom: var(--space-xs);
+    line-height: 1.4;
+}
+
+.main-footer a {
+    color: var(--color-text-light);
+    transition: color var(--transition-speed);
+}
+
+.main-footer a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* Estilização para Mobile: os itens do footer cairão na vertical graças ao CSS Grid base */
