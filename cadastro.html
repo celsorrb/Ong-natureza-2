@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Voluntariado ONG Natureza</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Ong-natureza-2/assets/css/style.css">
 </head>
 <body>
     
@@ -15,7 +12,7 @@
         <div class="container header-content">
             
             <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="Logo ONG Natureza: Reflorestamento e Vida">
+                <img src="/Ong-natureza-2/assets/img/logo.png" alt="Logo ONG Natureza: Reflorestamento e Vida">
             </a>
 
             <nav class="main-nav" id="main-nav">
@@ -35,102 +32,88 @@
             </nav>
 
             <div class="header-actions">
-                <a href="cadastro.html" class="button button-primary button-small active" aria-current="page">Voluntariado</a>
+                <a href="cadastro.html" class="button button-primary button-small">Voluntariado</a>
+                <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
-            
-            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir Menu Principal">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
         </div>
     </header>
 
     <main>
         
-        <section class="hero hero-cadastro" aria-labelledby="hero-cadastro-title">
-            <div class="hero-content container">
-                <h1 id="hero-cadastro-title">Seja um Guardião da Natureza!</h1>
-                <p class="hero-subtitle">Preencha o formulário abaixo e nos diga como você gostaria de contribuir. Sua jornada começa agora.</p>
-            </div>
-        </section>
-
-        <section class="section container content-with-image inverted-layout" aria-labelledby="form-title">
-            
-            <figure class="image-content">
-                <picture>
-                    <source srcset="assets/img/voluntarios_cavando.webp" type="image/webp">
-                    <img 
-                        src="assets/img/voluntarios_cavando.jpg" 
-                        alt="Três voluntários plantando ativamente, lado a lado, em um campo aberto." 
-                        loading="lazy" 
-                        class="round-image"
-                    >
-                </picture>
-                <figcaption>Nossos voluntários em ação. Junte-se a nós!</figcaption>
-            </figure>
-            
-            <div class="text-content">
-                <h2 id="form-title">Formulário de Voluntariado</h2>
-
-                <form class="main-form" id="volunteer-form" novalidate>
+        <section class="section section-cadastro">
+            <div class="container grid grid-12-cols">
+                
+                <div class="col-md-6 text-content">
+                    <h1 class="section-title">Seja um Guardião da Natureza!</h1>
+                    <p class="text-intro">Preencha o formulário abaixo para se juntar à nossa equipe de voluntários. Sua dedicação é vital para o sucesso dos nossos projetos de reflorestamento e educação.</p>
                     
-                    <fieldset class="form-group">
-                        <legend>Dados Básicos</legend>
+                    <figure class="cadastro-image-wrapper">
+                        <picture>
+                            <source srcset="/Ong-natureza-2/assets/img/voluntarios_cavando.webp" type="image/webp">
+                            <img src="/Ong-natureza-2/assets/img/voluntarios_cavando.jpg" alt="Voluntários cavando a terra para plantar" class="round-image">
+                        </picture>
+                        <figcaption class="image-caption">Trabalho de campo e plantio em equipe.</figcaption>
+                    </figure>
+                </div>
 
-                        <div class="form-field col-span-12">
-                            <label for="nome">Nome Completo <span class="required">*</span></label>
-                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required aria-describedby="nome-validation">
-                            <p id="nome-validation" class="validation-message">Por favor, insira seu nome.</p>
-                        </div>
-                        
-                        <div class="form-field col-md-6">
-                            <label for="email">E-mail <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required aria-describedby="email-validation">
-                            <p id="email-validation" class="validation-message">Por favor, insira um e-mail válido.</p>
-                        </div>
-                        
-                        <div class="form-field col-md-6">
-                            <label for="telefone">Telefone (Opcional)</label>
-                            <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
-                        </div>
-                    </fieldset>
+                <div class="col-md-6 form-content">
                     
-                    <fieldset class="form-group">
-                        <legend>Área de Interesse</legend>
-
-                        <div class="form-field col-md-6">
-                            <label for="interesse">Principal Área de Interesse <span class="required">*</span></label>
-                            <select id="interesse" name="interesse" required aria-describedby="interesse-validation">
-                                <option value="Selecione a área" selected disabled>Selecione a área</option>
-                                <option value="reflorestamento">Reflorestamento e Plantio</option>
-                                <option value="educacao">Educação Ambiental</option>
-                                <option value="pesquisa">Pesquisa e Monitoramento</option>
-                                <option value="administrativo">Administrativo/Marketing</option>
-                            </select>
-                            <p id="interesse-validation" class="validation-message">Selecione uma área de interesse.</p>
-                        </div>
-
-                        <div class="form-field col-md-6">
-                            <label for="disponibilidade">Disponibilidade (Opcional)</label>
-                            <input type="text" id="disponibilidade" name="disponibilidade" placeholder="Ex: Finais de semana, 4h por semana">
-                        </div>
-
-                        <div class="form-field col-span-12">
-                            <label for="mensagem">Por que você quer ser voluntário? (Opcional)</label>
-                            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre sua motivação..."></textarea>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="form-group">
-                        <legend style="display: none;">Confirmação</legend>
+                    <form id="volunteer-form" class="main-form">
                         
-                        <div class="checkbox-group col-span-12">
-                            <input type="checkbox" id="termos" name="termos" required aria-describedby="termos-validation">
-                            <label for="termos">Li e aceito a <a href="#" target="_blank">Política de Privacidade</a> <span class="required">*</span></label>
-                            <p id="termos-validation" class="validation-message" style="display: none;">Você deve aceitar os termos.</p>
-                        </div>
+                        <fieldset class="form-group">
+                            <legend>Seus Dados Pessoais</legend>
+                            
+                            <div class="form-field col-span-12">
+                                <label for="nome">Nome Completo <span aria-hidden="true">*</span></label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            
+                            <div class="form-field col-md-6">
+                                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-field col-md-6">
+                                <label for="telefone">Telefone (Whatsapp)</label>
+                                <input type="tel" id="telefone" name="telefone">
+                            </div>
+                            
+                        </fieldset>
+                        
+                        <fieldset class="form-group">
+                            <legend>Interesse no Voluntariado</legend>
+                            
+                            <div class="form-field col-md-6">
+                                <label for="interesse">Área de Interesse <span aria-hidden="true">*</span></label>
+                                <select id="interesse" name="interesse" required>
+                                    <option value="">Selecione a área</option>
+                                    <option value="reflorestamento">Reflorestamento e Plantio</option>
+                                    <option value="educacao">Educação Ambiental</option>
+                                    <option value="pesquisa">Pesquisa e Monitoramento</option>
+                                    <option value="administrativo">Administrativo/Marketing</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-field col-md-6">
+                                <label for="disponibilidade">Disponibilidade Semanal (Horas)</label>
+                                <input type="number" id="disponibilidade" name="disponibilidade" min="1" max="40">
+                            </div>
+
+                            <div class="form-field col-span-12">
+                                <label for="mensagem">Por que você quer ser voluntário?</label>
+                                <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                            </div>
+                            
+                        </fieldset>
+                        
+                        <details role="group" class="details-info">
+                            <summary>Clique para ler nossa Política de Privacidade</summary>
+                            <p class="text-small">Ao se cadastrar, você concorda que seus dados serão usados exclusivamente para fins de comunicação e gestão de voluntariado da ONG Natureza. Não compartilhamos suas informações com terceiros.</p>
+                        </details>
                         
                         <div class="form-field col-span-12 content-center">
                             <button type="submit" class="button button-primary button-large" id="submit-btn" disabled>Enviar Cadastro</button>
@@ -141,15 +124,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="section container" aria-labelledby="duvidas-title">
-            <h2 id="duvidas-title">Ainda tem dúvidas?</h2>
-            <p>Entre em contato conosco por e-mail ou telefone e tire todas as suas dúvidas sobre o trabalho voluntário e doações.</p>
-            <div style="margin-top: 20px;">
-                <a href="#" class="button button-secondary">Falar com a ONG &rarr;</a>
-            </div>
-        </section>
-
 
     </main>
 
@@ -181,6 +155,6 @@
         </div>
     </footer>
     
-    <script src="assets/js/app.js"></script>
+    <script src="/Ong-natureza-2/assets/js/app.js"></script>
 </body>
 </html>
